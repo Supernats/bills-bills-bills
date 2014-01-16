@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115174259) do
+ActiveRecord::Schema.define(:version => 20140116043457) do
+
+  create_table "loans", :force => true do |t|
+    t.integer  "transaction_id", :null => false
+    t.integer  "creditor_id",    :null => false
+    t.integer  "debtor_id",      :null => false
+    t.integer  "amount",         :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "loans", ["creditor_id"], :name => "index_loans_on_creditor_id"
+  add_index "loans", ["debtor_id"], :name => "index_loans_on_debtor_id"
+  add_index "loans", ["transaction_id"], :name => "index_loans_on_transaction_id"
+
+  create_table "transactions", :force => true do |t|
+    t.date     "date",        :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",        :null => false
