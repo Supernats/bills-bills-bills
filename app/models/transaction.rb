@@ -5,9 +5,7 @@ class Transaction < ActiveRecord::Base
   before_validation :ensure_date
 
   has_many :loans
-
   has_one :creditor, :through => :loans
-
   has_many :debtors, :through => :loans
 
   def ensure_date
