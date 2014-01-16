@@ -1,5 +1,5 @@
 class Transaction < ActiveRecord::Base
-  attr_accessible :date
+  attr_accessible :date, :description
 
   validates :date, :presence => true
   before_validation :ensure_date

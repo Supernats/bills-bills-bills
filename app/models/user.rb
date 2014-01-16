@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :password, :session_token, :username
+  attr_reader :password
+
   before_validation :ensure_session_token
+
   validates :session_token, :username, :password_digest, :presence => true
   validates :password, :length => { :minimum => 6, :allow_nil => true }
+
+  has_many :debtors, :through => :credits
+  has_many :creditors, :through => :debts
 
   has_many(
     :debts,
@@ -46,9 +52,9 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
+   @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-
 
   def reset_session_token!
     self.session_token = User.generate_session_token
@@ -58,4 +64,25 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= User.generate_session_token
   end
+
+  def total_balance
+    self.total_credit - self.total_debt
+  end
+
+  def total_credit
+    total = 0
+    self.credits.each do |credit|
+      total += credit.amount
+    end
+    total
+  end
+
+  def total_debt
+    total = 0
+    self.debts.each do |debt|
+      total += debt.amount
+    end
+    total
+  end
+
 end

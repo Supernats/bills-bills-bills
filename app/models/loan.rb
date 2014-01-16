@@ -3,13 +3,17 @@ class Loan < ActiveRecord::Base
 
   belongs_to(
     :creditor,
-    :class_name: "User"
+    :class_name => "User"
   )
 
   belongs_to(
     :debtor,
-    :class_name: "User"
+    :class_name => "User"
   )
 
   belongs_to :transaction
+
+  def date
+    self.transaction.date
+  end
 end
