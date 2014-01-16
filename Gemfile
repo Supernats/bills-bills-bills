@@ -8,12 +8,18 @@ gem 'backbone-on-rails'
 
 gem 'pg'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
 end
+
 # Gems used only for assets and not required
 # in production environments by default.
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
