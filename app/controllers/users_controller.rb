@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
-    render @users
   end
   
   def new
     @user = User.new
-    render new
   end
 
   def create
@@ -16,18 +15,16 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
-      render new
+      render :new
     end
   end
 
   def show
     @user = User.find(params[:id])
-    render @user
   end
 
   def edit
     @user = current_user
-    render edit
   end
 
   def update
@@ -36,8 +33,8 @@ class UsersController < ApplicationController
       flash.now[:notices] = "Your info has been updated"
       redirect_to user_url(@user)
     else
-      flash[:errors] = @user.errors.full_messages
-      render edit
+      flash.now[:errors] = @user.errors.full_messages
+      render :edit
     end
   end
 

@@ -1,7 +1,7 @@
 <input
   type="hidden"
   name="authenticity_token"
-  value="<%= form_autheticity_token %>"
+  value="<%= form_authenticity_token %>"
 >
 <label for="user_username">
   Username
@@ -11,6 +11,7 @@
   id="user_username"
   name="user[username]"
   value="<%= user.username %>"
+  placeholder="username"
 >
 <label for="user_password">
   Password
@@ -19,5 +20,5 @@
   type="password"
   id="user_password"
   name="user[password]"
-  value="<%= user.password %>"
+  placeholder="password"
 >
