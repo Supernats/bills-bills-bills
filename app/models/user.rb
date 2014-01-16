@@ -65,6 +65,11 @@ class User < ActiveRecord::Base
     self.session_token ||= User.generate_session_token
   end
 
+  def get_balance_with_other_user(user_id)
+    other_user = User.find(user_id)
+
+  end
+
   def total_balance
     self.total_credit - self.total_debt
   end
