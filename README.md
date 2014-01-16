@@ -35,7 +35,7 @@ Strap up and put boots on the ground!
 + [ ] - This will make more sense after that spinal surgery you need
 
 You're awesome! Start using other people's work for validation, even if you're pretty sure you don't need it.
-+ [ ] - Stateside only? LAME! Get some Open Exchange Rates in your life (https://openexchangerates.org/)
-+ [ ] - People don't want emails telling them to go do something, they want a button so they can click it and have it done for them. Learn you some PayPal and get yo invoice on (https://developer.paypal.com/)
++ [ ] - Stateside only? LAME! Get some [Open Exchange Rates](https://openexchangerates.org/) in your life.
++ [ ] - People don't want emails telling them to go do something, they want a button so they can click it and have it done for them. Learn you some [PayPal](https://developer.paypal.com/) and get yo invoice on.
 + [ ] - Who remembers emails? Hook up with Google and automate that jazz (https://developers.google.com/)
 + [ ] - What if your contacts don't have photos? Get some Gravatar in your life and spice up those bland circles (https://en.gravatar.com/site/implement/)

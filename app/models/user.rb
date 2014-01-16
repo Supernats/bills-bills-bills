@@ -67,7 +67,6 @@ class User < ActiveRecord::Base
 
   def get_balance_with_other_user(user_id)
     other_user = User.find(user_id)
-
   end
 
   def total_balance
