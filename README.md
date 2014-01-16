@@ -10,6 +10,9 @@ Doable stretch:
 + Integrate with Facebook/Google to provide quick access to friends.
 
 Rails is such a TODO:
++ [x] - Sign up
++ [x] - Sign in
++ [ ] - Forgotten password
 + [ ] - Add email to user signup.
 + [ ] - Use email for sign-in?
 + [ ] - Add splitting functionality
