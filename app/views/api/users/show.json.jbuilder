@@ -23,9 +23,9 @@ json.credits @user.credits do |credit|
   json.(
     credit,
     :id,
-    :transaction,
+    :transaction_id,
     :debtor_id,
     :amount,
-    :transaction
+    :description
   )
 end
