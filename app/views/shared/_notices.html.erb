@@ -1,0 +1,7 @@
+<% if flash[:notices] && !flash[:errors].empty? %>
+  <ul>
+    <% flash[:notices].each do |error| %>
+      <li><%= notice %>
+    <% end %>
+  </ul>
+<% end %>
