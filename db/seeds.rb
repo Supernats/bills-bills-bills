@@ -1,22 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# Create users
 nathan = User.create(:username => "Nathan", :password => "password")
 david = User.create(:username => "David", :password => "password")
 rory = User.create(:username => "Rory", :password => "password")
 john = User.create(:username => "John", :password => "password")
 
+# Create transaaction objects
 nathan_rory_john = Transaction.create(:description => "Nathan paid for Rory and John: 20+10=30")
-david_john_nathan = Transaction.create(:descritption => "David paid for John and Nathan: 30+10=60")
+david_john_nathan = Transaction.create(:description => "David paid for John and Nathan: 30+10=60")
 david_rory = Transaction.create(:description => "David paid for Rory: 15=15")
 john_david = Transaction.create(:description => "John paid for David: 25=25")
 nathan_david = Transaction.create(:description => "Nathan paid for David: 100=100")
-nathan_rory = Transaction.create(:desctiption => "Nathan paid for Rory: 30=30")
+nathan_rory = Transaction.create(:description => "Nathan paid for Rory: 30=30")
 
+# Create loans for transaction
 # Transaction 1: Nathan => Rory and John
 Loan.create(
   :transaction_id => nathan_rory_john.id,
@@ -27,7 +23,7 @@ Loan.create(
 Loan.create(
   :transaction_id => nathan_rory_john.id,
   :creditor_id => nathan.id,
-  :debtor_id, john.id,
+  :debtor_id => john.id,
   :amount => 10
 )
 

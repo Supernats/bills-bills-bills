@@ -18,4 +18,5 @@ class Loan < ActiveRecord::Base
   def date
     self.transaction.date
   end
+
 end

@@ -18,8 +18,8 @@ Rails is such a TODO:
 + [x] - Creditors know their debtors
 + [x] - Debtors know their creditors
 + [x] - Users know their total balance
-+ [ ] - Creditors know their balance with a debtor
-+ [ ] - Debtors know their balance with a creditor
++ [x] - Creditors know their balance with a debtor
++ [x] - Debtors know their balance with a creditor
 + [ ] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
 
