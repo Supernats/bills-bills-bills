@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
     sum
   end
 
+  def transactions
+    paid_transactions + sponsored_transactions
+  end
+
   def total_balance
     self.total_credit - self.total_debt
   end
