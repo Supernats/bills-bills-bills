@@ -19,4 +19,8 @@ class Loan < ActiveRecord::Base
     self.transaction.date
   end
 
+  def description
+    self.transaction.description
+  end
+
 end

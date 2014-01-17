@@ -12,20 +12,20 @@ json.debts @user.debts do |debt|
   json.(
     debt,
     :id,
-    self.transaction.description,
+    :transaction_id,
     :creditor_id,
     :amount,
-    self.transaction.date
+    :description
   )
 end
 
-json.credits @user.credit do |credit|
+json.credits @user.credits do |credit|
   json.(
     credit,
     :id,
-    self.transaction.description,
+    :transaction,
     :debtor_id,
     :amount,
-    self.transaction.date
+    :transaction
   )
 end

@@ -20,6 +20,11 @@ Rails is such a TODO:
 + [x] - Users know their total balance
 + [x] - Creditors know their balance with a debtor
 + [x] - Debtors know their balance with a creditor
++ [x] - Users show in JSON
++ [ ] - Transaction show JSON
++ [ ] - Transaction new JSON
++ [ ] - Loan new JSON (To be included in Transaction new)
++ [ ] - Loan show JSON (With option to make new transaction to settle up)
 + [ ] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
 

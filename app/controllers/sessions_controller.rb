@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    username, plaintext = params[:user][:username], params[:user][:plaintext]
-    @user = User.find_by_credentials(username, plaintext)
+    username, password = params[:user][:username], params[:user][:password]
+    @user = User.find_by_credentials(username, password)
     if @user
       login_user!(@user)
       redirect_to users_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = "Incorrect credentials"
       render new
     end
   end
