@@ -21,6 +21,7 @@ Rails is such a TODO:
 + [x] - Creditors know their balance with a debtor
 + [x] - Debtors know their balance with a creditor
 + [x] - Users show in JSON
++ [ ] - Streamlining: A transaction could easily be instantiated with a creditor, and have all loans within point to that user
 + [ ] - Transaction show JSON
 + [ ] - Transaction new JSON
 + [ ] - Loan new JSON (To be included in Transaction new)
