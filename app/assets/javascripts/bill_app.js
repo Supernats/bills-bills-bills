@@ -5,6 +5,7 @@ window.BillApp = {
   Routers: {},
   initialize: function() {
     alert('Hello from Backbone!');
+    BillApp.user = new BillApp.Model.user();
     BillApp.transactions = new BillApp.Collections.Transaction();
     BillApp.loans = new BillApp.Collections.Loans();
     BillApp.credits = new BillApp.Collections.Credits();

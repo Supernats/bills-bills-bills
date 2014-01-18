@@ -34,6 +34,34 @@ class User < ActiveRecord::Base
     :source => :transaction
   )
 
+  has_many(
+    :source_friendships,
+    :foreign_key => :source_friend_id,
+    :class_name => "Friendship",
+    :uniq => true
+  )
+  
+  has_many(
+    :target_friendships,
+    :foreign_key => :target_friend_id,
+    :class_name => "Friendship",
+    :uniq => true
+  )
+
+  has_many(
+    :source_friends,
+    :through => :source_friendships,
+    :source => :target_friend,
+    :uniq => true
+  )
+
+  has_many(
+    :target_friends,
+    :through => :target_friendships,
+    :source => :source_friend,
+    :uniq => true
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     if user && user.is_password?(password)
@@ -66,9 +94,6 @@ class User < ActiveRecord::Base
   end
 
   def balance_with_other_user(other_user)
-    puts other_user.username
-    puts credit_with_other_user(other_user)
-    puts debt_with_other_user(other_user)
     credit_with_other_user(other_user) - debt_with_other_user(other_user)
   end
 
@@ -84,6 +109,10 @@ class User < ActiveRecord::Base
     sum = 0
     debts.each { |debt| sum += debt.amount }
     sum
+  end
+
+  def friends
+    (target_friends + source_friends).uniq
   end
 
   def transactions

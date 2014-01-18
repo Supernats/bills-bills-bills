@@ -1,5 +1,10 @@
 json.(@user, :id, :username, :total_owed_to_other_users, :total_owed_by_other_users)
 
+json.friends @user.friends do |friend|
+  json.id friend.id
+  json.username friend.username
+end
+
 json.unpaid_creditors @user.unpaid_creditors do |creditor|
   json.id creditor.id
   json.username creditor.username

@@ -29,6 +29,7 @@ Rails is such a TODO:
 + [ ] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
 + [ ] - User pulldown queries could use some optimization
++ [ ] - Add Friendships join table so users can keep track of who they split with
 
 Evolve! Become a member of phylum chordata:
 + [ ] - Collection

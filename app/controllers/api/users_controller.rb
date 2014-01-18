@@ -6,8 +6,9 @@ class Api::UsersController < ApplicationController
       :debtors,
       :creditors,
       :paid_transactions,
-      :sponsored_transactions
+      :sponsored_transactions,
+      :target_friends,
+      :source_friends
     ).find(params[:id])
-
   end
 end
