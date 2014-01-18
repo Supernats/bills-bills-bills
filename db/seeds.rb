@@ -3,6 +3,7 @@ nathan = User.create(:username => "Nathan", :password => "password")
 david = User.create(:username => "David", :password => "password")
 rory = User.create(:username => "Rory", :password => "password")
 john = User.create(:username => "John", :password => "password")
+ned = User.create(:username => "Ned", :password => "password")
 
 # Create transaaction objects
 nathan_rory_john = Transaction.create(:description => "Nathan paid for Rory and John: 20+10=30")
@@ -72,4 +73,40 @@ Loan.create(
   :creditor_id => nathan.id,
   :debtor_id => rory.id,
   :amount => 30
+)
+
+# Seed Friendships
+Friendship.create(
+  :target_friend_id => nathan.id,
+  :source_friend_id => david.id
+)
+
+Friendship.create(
+  :target_friend_id => nathan.id,
+  :source_friend_id => john.id
+)
+
+Friendship.create(
+  :target_friend_id => nathan.id,
+  :source_friend_id => ned.id
+)
+
+Friendship.create(
+  :target_friend_id => rory.id,
+  :source_friend_id => david.id
+)
+
+Friendship.create(
+  :target_friend_id => john.id,
+  :source_friend_id => david.id
+)
+
+Friendship.create(
+  :target_friend_id => rory.id,
+  :source_friend_id => ned.id
+)
+
+Friendship.create(
+  :target_friend_id => david.id,
+  :source_friend_id => ned.id
 )

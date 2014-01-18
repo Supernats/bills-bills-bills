@@ -1,20 +1,27 @@
-json.(@user, :id, :username, :total_owed_to_other_users, :total_owed_by_other_users)
+json.(
+  @user,
+  :id,
+  :username,
+  :total_owed_to_other_users,
+  :total_owed_by_other_users
+)
 
 json.friends @user.friends do |friend|
   json.id friend.id
   json.username friend.username
+  json.balance @user.balance_with_other_user(friend)
 end
 
 json.unpaid_creditors @user.unpaid_creditors do |creditor|
   json.id creditor.id
   json.username creditor.username
-  json.debt @user.balance_with_other_user(creditor)
+  json.balance @user.balance_with_other_user(creditor)
 end
 
 json.unpaid_debtors @user.unpaid_debtors do |debtor|
   json.id debtor.id
   json.username debtor.username
-  json.credit @user.balance_with_other_user(debtor)
+  json.balance @user.balance_with_other_user(debtor)
 end
 
 json.transactions @user.transactions do |transaction|
