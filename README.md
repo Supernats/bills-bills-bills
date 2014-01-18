@@ -28,6 +28,7 @@ Rails is such a TODO:
 + [ ] - Loan show JSON (With option to make new transaction to settle up)
 + [ ] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
++ [ ] - User pulldown queries could use some optimization
 
 Evolve! Become a member of phylum chordata:
 + [ ] - Collection

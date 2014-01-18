@@ -66,6 +66,9 @@ class User < ActiveRecord::Base
   end
 
   def balance_with_other_user(other_user)
+    puts other_user.username
+    puts credit_with_other_user(other_user)
+    puts debt_with_other_user(other_user)
     credit_with_other_user(other_user) - debt_with_other_user(other_user)
   end
 
