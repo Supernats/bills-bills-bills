@@ -1,5 +1,14 @@
 json.(@user, :id, :username)
 
+json.transactions @user.transactions do |transaction|
+  json.(
+    transaction,
+    :id,
+    :date,
+    :description
+  )
+end
+
 json.debts @user.debts do |debt|
   json.(
     debt,

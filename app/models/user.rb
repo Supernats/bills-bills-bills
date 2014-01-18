@@ -87,24 +87,19 @@ class User < ActiveRecord::Base
     paid_transactions + sponsored_transactions
   end
 
-  def total_balance
-    self.total_credit - self.total_debt
+  # these totals feel shaky
+  def negative_balances
+    negative_balances = []
+    creditors.each do |creditor|
+      negative_balances << creditor if balance_with_other(creditor) < 0
+    end
   end
 
-  def total_credit
-    total = 0
-    self.credits.each do |credit|
-      total += credit.amount
+  def positive_balances
+    positive_balances = []
+    debtors.each do |debtor|
+      positive_balance << debtor if balance_with_other(debtor) < 0
     end
-    total
-  end
-
-  def total_debt
-    total = 0
-    self.debts.each do |debt|
-      total += debt.amount
-    end
-    total
   end
 
 end
