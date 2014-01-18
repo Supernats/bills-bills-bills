@@ -1,4 +1,4 @@
-json.(@user, :id, :username, )
+json.(@user, :id, :username)
 
 json.debts @user.debts do |debt|
   json.(

@@ -45,3 +45,6 @@ You're awesome! Start using other people's work for validation, even if you're p
 + [ ] - People don't want emails telling them to go do something, they want a button so they can click it and have it done for them. Learn you some [PayPal](https://developer.paypal.com/) and get yo invoice on.
 + [ ] - Who remembers emails? Hook up with Google and automate that jazz (https://developers.google.com/)
 + [ ] - What if your contacts don't have photos? Get some Gravatar in your life and spice up those bland circles (https://en.gravatar.com/site/implement/)
+
+
+jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller. controller
