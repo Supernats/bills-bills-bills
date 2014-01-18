@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   validates :session_token, :username, :password_digest, :presence => true
   validates :password, :length => { :minimum => 6, :allow_nil => true }
 
-  has_many :debtors, :through => :credits
-  has_many :creditors, :through => :debts
+  has_many :debtors, :through => :credits, :uniq => true
+  has_many :creditors, :through => :debts, :uniq => true
 
   has_many(
     :debts,
@@ -87,19 +87,40 @@ class User < ActiveRecord::Base
     paid_transactions + sponsored_transactions
   end
 
-  # these totals feel shaky
-  def negative_balances
-    negative_balances = []
+  def unpaid_creditors
+    unpaid_creditors = []
     creditors.each do |creditor|
-      negative_balances << creditor if balance_with_other(creditor) < 0
+      if balance_with_other_user(creditor) < 0
+        unpaid_creditors << creditor
+      end
     end
+    unpaid_creditors
   end
 
-  def positive_balances
-    positive_balances = []
+  def unpaid_debtors
+    unpaid_debtors = []
     debtors.each do |debtor|
-      positive_balance << debtor if balance_with_other(debtor) < 0
+      if balance_with_other_user(debtor) > 0
+        unpaid_debtors << debtor
+      end
     end
+    unpaid_debtors
+  end
+
+  def total_owed_by_other_users
+    total_credit = 0
+    unpaid_debtors.each do |debtor|
+      total_credit += balance_with_other_user(debtor)
+    end
+    total_credit
+  end
+
+  def total_owed_to_other_users
+    total_debt = 0
+    unpaid_creditors.each do |creditor|
+      total_debt += balance_with_other_user(creditor)
+    end
+    total_debt
   end
 
 end
