@@ -70,14 +70,14 @@ class User < ActiveRecord::Base
   end
 
   def credit_with_other_user(other_user)
-    credits = self.credits.where(:debtor_id => other_user.id)
+    credits = self.credits.select { |credit| credit.debtor_id == other_user.id }
     sum = 0
     credits.each { |credit| sum += credit.amount }
     sum
   end
 
   def debt_with_other_user(other_user)
-    debts = self.debts.where(:creditor_id => other_user.id)
+    debts = self.debts.select { |debt| debt.creditor_id == other_user.id }
     sum = 0
     debts.each { |debt| sum += debt.amount }
     sum
