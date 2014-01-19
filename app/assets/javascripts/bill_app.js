@@ -6,7 +6,7 @@ window.BillApp = {
   initialize: function() {
     alert('Hello from Backbone!');
     BillApp.user = new BillApp.Models.User({ id: 1 });
-    BillApp.user.fetch().done(afterDone);
+    BillApp.user.fetch();
     // BillApp.transactions = new BillApp.Collections.Transaction();
     // BillApp.loans = new BillApp.Collections.Loans();
     // BillApp.credits = new BillApp.Collections.Credits();

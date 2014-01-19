@@ -1,4 +1,3 @@
-BillApp.Collections.Debts = Backbone.Collection.extend({
-  model: BillApp.Models.Debt,
-  url: '/api/debts'
-});
+// BillApp.Collections.Debts = BillApp.Collections.Loans.extend({
+//   model: BillApp.Models.Debt
+// });

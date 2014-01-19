@@ -130,6 +130,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller
+  ejs
   jbuilder
   jquery-rails
   pg
