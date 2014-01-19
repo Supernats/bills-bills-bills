@@ -10,17 +10,30 @@ class Transaction < ActiveRecord::Base
   has_many :creditors, :through => :loans
   has_many :debtors, :through => :loans
 
+  def amount
+    sum = 0
+    self.loans.each { |loan| sum += loan.amount }
+    sum
+  end
+
   def creditor
     self.creditors.first
+  end
+
+  def debtor_ids
+    ids = []
+    self.debtors.each do |debtor|
+      ids << debtor.id
+    end
+    ids
   end
 
   def ensure_date
     self.date ||= Date.today
   end
 
-  def amount
-    sum = 0
-    self.loans.each { |loan| sum += loan.amount }
-    sum
+  def roster
+    [creditor.id].concat(debtor_ids)
   end
+
 end

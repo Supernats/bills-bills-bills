@@ -12,18 +12,6 @@ json.friends @user.friends do |friend|
   json.balance @user.balance_with_other_user(friend)
 end
 
-json.unpaid_creditors @user.unpaid_creditors do |creditor|
-  json.id creditor.id
-  json.username creditor.username
-  json.balance @user.balance_with_other_user(creditor)
-end
-
-json.unpaid_debtors @user.unpaid_debtors do |debtor|
-  json.id debtor.id
-  json.username debtor.username
-  json.balance @user.balance_with_other_user(debtor)
-end
-
 json.transactions @user.transactions do |transaction|
   json.(
     transaction,

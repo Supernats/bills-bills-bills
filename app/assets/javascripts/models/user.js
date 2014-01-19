@@ -1,7 +1,8 @@
 BillApp.Models.User = Backbone.Model.extend({
-  url: "/api/users:id",
+  urlRoot: "/api/users/",
 
   parse: function(data) {
-
+    console.log(data);
   }
+
 });

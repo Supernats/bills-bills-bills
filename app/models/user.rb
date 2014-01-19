@@ -152,7 +152,7 @@ class User < ActiveRecord::Base
     unpaid_creditors.each do |creditor|
       total_debt += balance_with_other_user(creditor)
     end
-    total_debt
+    -total_debt
   end
 
 end
