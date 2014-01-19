@@ -1,8 +1,5 @@
 BillApp.Collections.Loans = Backbone.Collection.extend({
-  url: function () {
-    var url = "/transactions/" + this.transaction_id + "/loans";
-    return url;
-  }
+  url: "/api/loans"
 });
 
 BillApp.Collections.Debts = BillApp.Collections.Loans.extend({

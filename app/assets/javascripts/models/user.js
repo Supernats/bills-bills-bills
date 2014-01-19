@@ -5,7 +5,6 @@ BillApp.Models.User = Backbone.Model.extend({
     var user = this;
 
     var friends = response.friends;
-    friends.parent_id = user.id;
     response.friends = new BillApp.Collections.Friends(friends);
 
     var transactions = response.transactions;
