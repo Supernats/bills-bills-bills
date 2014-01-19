@@ -89,5 +89,5 @@ You're awesome! Start using other people's work for validation, even if you're p
 + [ ] - What if your contacts don't have photos? Get some [Gravatar](https://en.gravatar.com/site/implement/) in your life and spice up those bland circles.
 
 
-jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller. controller  
+jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller.  
 Thanks, Jeff! Your words put me back on the True Path.
