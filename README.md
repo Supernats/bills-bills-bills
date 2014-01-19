@@ -28,12 +28,13 @@ Rails is such a TODO:
 + [ ] - Loan show JSON (With option to make new transaction to settle up)
 + [ ] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
-+ [ ] - User pulldown queries could use some optimization
-+ [ ] - Add Friendships join table so users can keep track of who they split with
++ [x] - User pulldown queries could use some optimization
++ [ ] - ...and maybe a little more
++ [x] - Add Friendships join table so users can keep track of who they split with
 
 Evolve! Become a member of phylum chordata:
-+ [ ] - Collection
-+ [ ] - Models
++ [x] - Collections
++ [x] - Models
 + [ ] - Views
 + [ ] - Templates
 + [ ] - Router
@@ -45,8 +46,9 @@ Strap up and put boots on the ground!
 You're awesome! Start using other people's work for validation, even if you're pretty sure you don't need it.
 + [ ] - Stateside only? LAME! Get some [Open Exchange Rates](https://openexchangerates.org/) in your life.
 + [ ] - People don't want emails telling them to go do something, they want a button so they can click it and have it done for them. Learn you some [PayPal](https://developer.paypal.com/) and get yo invoice on.
-+ [ ] - Who remembers emails? Hook up with Google and automate that jazz (https://developers.google.com/)
-+ [ ] - What if your contacts don't have photos? Get some Gravatar in your life and spice up those bland circles (https://en.gravatar.com/site/implement/)
++ [ ] - Who remembers emails? Hook up with [Google](https://developers.google.com/) and automate that jazz.
++ [ ] - What if your contacts don't have photos? Get some [Gravatar](https://en.gravatar.com/site/implement/) in your life and spice up those bland circles.
 
 
 jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller. controller
+Thanks, Jeff! Your words put me back on the True Path.
