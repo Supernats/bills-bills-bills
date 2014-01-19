@@ -34,9 +34,48 @@ Rails is such a TODO:
 
 Evolve! Become a member of phylum chordata:
 + [x] - Collections
+    + [x] - Debts
+    + [x] - Credits
+    + [x] - Transactions
+    + [x] - Friends
 + [x] - Models
+    + [x] - User
+    + [x] - Transaction
+    + [x] - Debt
+    + [x] - Credit
+    + [x] - Friend
 + [ ] - Views
+    + [ ] - Transaction
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
+    + [ ] - Loan
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
+    + [ ] - Friend
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
 + [ ] - Templates
+    + [ ] - Transaction
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
+    + [ ] - Loan
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
+    + [ ] - Friend
+        + [ ] - New
+        + [ ] - Item
+        + [ ] - Detail
+        + [ ] - Index
 + [ ] - Router
 + [ ] - Conquer the world through drag and drop. DRAG AND DROP EVERYWHERE!
 
