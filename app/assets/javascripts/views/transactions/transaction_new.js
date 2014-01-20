@@ -24,9 +24,10 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
 
   clearField: function (event) {
     var field = $(event.currentTarget);
-    field.val(0);
+    field.val('');
     field.removeClass('unmodified-amount');
     field.addClass('modified-amount');
+    this.splitEvenly(event);
   },
 
   submit: function (event) {
@@ -81,7 +82,8 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     var total = $('#transaction_total').val();
     var modifiedAmount = 0;
     $('.modified-amount').each( function (index) {
-      modifiedAmount += parseInt($(this).val());
+      var modifier = parseInt($(this).val()) > 0 ? parseInt($(this).val()) : 0;
+      modifiedAmount += modifier;
     });
     total -=  modifiedAmount;
     var parties = $('.unmodified-amount').length;

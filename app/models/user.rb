@@ -25,13 +25,15 @@ class User < ActiveRecord::Base
   has_many(
     :paid_transactions,
     :through => :credits,
-    :source => :transaction
+    :source => :transaction,
+    :uniq => true
   )
 
   has_many(
     :sponsored_transactions,
     :through => :debts,
-    :source => :transaction
+    :source => :transaction,
+    :uniq => true
   )
 
   has_many(
@@ -116,7 +118,7 @@ class User < ActiveRecord::Base
   end
 
   def transactions
-    paid_transactions + sponsored_transactions
+    (paid_transactions + sponsored_transactions).uniq
   end
 
   def unpaid_creditors
