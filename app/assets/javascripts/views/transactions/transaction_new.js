@@ -8,7 +8,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     "click #add_debtor": "addDebtor",
     "keyup #transaction_total": "splitEvenly",
     "click .unmodified-amount": "clearField",
-    "keyup .modified-amount": "splitEvenly",
+    "keyup .modified-amount": "splitEvenly"
   },
 
   render: function () {
@@ -23,11 +23,23 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   clearField: function (event) {
-    var field = $(event.currentTarget);
-    field.val('');
-    field.removeClass('unmodified-amount');
-    field.addClass('modified-amount');
-    this.splitEvenly(event);
+    if (!this.checkForLastField(event)) {
+      var field = $(event.currentTarget);
+      field.val('');
+      field.removeClass('unmodified-amount');
+      field.addClass('modified-amount');
+      this.splitEvenly(event);
+    }
+  },
+
+  checkForLastField: function (event) {
+    var lastField = false;
+    if ($('.unmodified-amount').length ===  1
+        && $('.debtor-share').length > 0) {
+      window.alert("Don't worry; we'll do the math for you.");
+      lastField = true;
+    }
+    return lastField;
   },
 
   submit: function (event) {
