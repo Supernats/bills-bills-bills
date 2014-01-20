@@ -1,5 +1,11 @@
 "SUPER SWEET APP NAME" is an app for splitting bills with your friends.
 
+TA Issues:
++ Bootstrapping current user (bill-app.js)
++ jquery.serializeJSON is causing errors when attempting to push to Heroku
++ Whether loan data should be collected by loan view and sent up to transaction
+
+
 Basic stuff:
 + Let you add your friends as contacts for quick bill splitting with your most-used contacts.
 + Keep a running tally of your debts and credits with all your friends, with a history of the events that got you there.
