@@ -17,10 +17,13 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   addDebtor: function (event) {
     var loanNew = new BillApp.Views.LoanNew();
     this.$('#debtors').append(loanNew.render().$el);
-  }
+  },
 
   submit: function (event) {
     event.preventDefault();
+    var newTransaction = new BillApp.Models.Transaction({
+
+    });
     var creditorId = getCreditorId();
     var debtorsObject = makeDebtorsObject();
     fireNewLoans(creditorId, debtorsObject);
