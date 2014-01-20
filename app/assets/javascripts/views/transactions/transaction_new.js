@@ -73,7 +73,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     event.preventDefault();
     var total = $('#transaction_total').val();
     var parties = $('.debtor-name').length + $('#creditor_name').length;
-    var evenShare = total / parties;
+    var evenShare = Math.floor(total / parties);
     var remnant = total % parties;
     var splits = [];
     _(parties).times(function (index) {
@@ -82,11 +82,11 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
         splits[index]++;
         remnant--;
       }
-    };
+    });
     $('#creditor_share').val(splits.shift());
     $('.debtor-share').each(function (index) {
       $(this).val(splits.shift());
-    };
+    });
   },
 
   // TA/Ned question
