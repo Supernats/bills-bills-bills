@@ -75,10 +75,18 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     var parties = $('.debtor-name').length + $('#creditor_name').length;
     var evenShare = total / parties;
     var remnant = total % parties;
-    $('#creditor_share').val(evenShare + remnant);
+    var splits = [];
+    _(parties).times(function (index) {
+      splits.push(evenShare);
+      if (remnant > 0) {
+        splits[index]++;
+        remnant--;
+      }
+    };
+    $('#creditor_share').val(splits.shift());
     $('.debtor-share').each(function (index) {
-      $(this).val(evenShare);
-    });
+      $(this).val(splits.shift());
+    };
   },
 
   // TA/Ned question
