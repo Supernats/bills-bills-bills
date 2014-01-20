@@ -9,19 +9,33 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   render: function () {
-    var view = this;
-    var renderedContent = view.template({ });
-    view.$el.html(renderedContent);
-    return view;
+    var renderedContent = this.template({ });
+    this.$el.html(renderedContent);
+    return this;
   },
+
+  addDebtor: function (event) {
+    var loanNew = new BillApp.Views.LoanNew();
+    this.$('#debtors').append(loanNew.render().$el);
+  }
 
   submit: function (event) {
-    event.preventDefault;
+    event.preventDefault();
     var creditorId = getCreditorId();
+    var debtorsObject = makeDebtorsObject();
+    fireNewLoans(creditorId, debtorsObject);
   },
 
-  fireNewLoans: function (creditorId, debtorObject) {
-                },
+  fireNewLoans: function (creditorId, debtorsObject) {
+    _.each(debtorsObject, function (loanAmount, debtorId) {
+      loan = new BillApp.Models.Loan({
+        creditor_id: creditorId,
+        debtor_id: debtorId,
+        amount: loanAmount
+      });
+      loan.save();
+    });
+  },
 
   getCreditorId: function () {
     var creditorName = $('#creditor').val();
@@ -39,12 +53,33 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     return user.id;
   },
 
+  // TA/Ned question
+  // should getting amounts and ids be deferred to individual loan views?
+
   getDebtorIds: function () {
     var debtorIds = [];
-    var $debtors = $('.debtor');
-    $debtors.each(function (i) {
-      var debtorName = this.val();
+    $('.debtor').each(function (debtor) {
+      var debtorName = debtor.val();
       debtorIds.push(getUserId(debtorName));
-    }
+    });
+    return debtorIds;
+  },
+
+  getLoanAmounts: function () {
+    var loanAmounts = [];
+    $('.amount').each(function (i) {
+      loanAmounts.push(this.val());
+    });
+    return loanAmounts;
+  },
+
+  makeDebtorsObject: function () {
+    var debtorsObject = {};
+    var debtorIds = getDebtorIds();
+    var loanAmounts = getLoanAmounts();
+    _.each(debtorIds, function (debtorId, index) {
+      debtorsObject[debtorIds[index]] = loanAmounts[index];
+    });
+    return debtorsObject;
   }
 });
