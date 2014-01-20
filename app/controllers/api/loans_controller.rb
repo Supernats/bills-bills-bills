@@ -5,7 +5,7 @@ class Api::LoansController < ApplicationController
 
   def create
     @loan = Loan.new(params[:loan])
-    if @loan.save
+    if @loan.save!
       render :show
     else
       render :json => @loan.errors, :status => 422

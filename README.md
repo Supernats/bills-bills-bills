@@ -33,6 +33,7 @@ Rails is such a TODO:
 + [x] - Add Friendships join table so users can keep track of who they split with
 
 Evolve! Become a member of phylum chordata:
++ [ ] - Pass actual userid on kickoff
 + [x] - Collections
     + [x] - Debts
     + [x] - Credits

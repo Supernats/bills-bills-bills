@@ -10,13 +10,14 @@ class Api::TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(params[:transaction])
     if @transaction.save
-      render :show
+      render :json => @transaction
     else
-      render :json => @gist.errors, :status => 422
+      render :json => @transaction.errors, :status => 422
     end
   end
 
   def show
     @transaction = Transaction.find(params[:id])
+    render :json => @transaction
   end
 end

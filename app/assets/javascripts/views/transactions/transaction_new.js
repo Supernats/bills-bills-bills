@@ -4,8 +4,8 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   template: JST['transactions/transaction_new'],
 
   events: {
-    "submit": "submit",
-    "click #add-debtor": "addDebtor"
+    "click #transaction_submit": "submit",
+    "click #add_debtor": "addDebtor"
   },
 
   render: function () {
@@ -21,28 +21,40 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var newTransaction = new BillApp.Models.Transaction({
-
+    var that = this;
+    var params = $(
+      event.
+      currentTarget.
+      parentElement.
+      parentElement
+    ).serializeJSON()["transaction"];
+    var newTransaction = new BillApp.Models.Transaction(params);
+    newTransaction.save({},
+      { success: function (response) {
+        var transactionId = response.id;
+        var creditorId = that.getCreditorId();
+        var debtorsObject = that.makeDebtorsObject();
+        that.fireNewLoans(transactionId, creditorId, debtorsObject);
+      }
     });
-    var creditorId = getCreditorId();
-    var debtorsObject = makeDebtorsObject();
-    fireNewLoans(creditorId, debtorsObject);
   },
 
-  fireNewLoans: function (creditorId, debtorsObject) {
+  fireNewLoans: function (transactionId, creditorId, debtorsObject) {
     _.each(debtorsObject, function (loanAmount, debtorId) {
       loan = new BillApp.Models.Loan({
+        transaction_id: transactionId,
         creditor_id: creditorId,
         debtor_id: debtorId,
         amount: loanAmount
       });
+      debugger
       loan.save();
     });
   },
 
   getCreditorId: function () {
     var creditorName = $('#creditor').val();
-    getUserId(creditorName);
+    return this.getUserId(creditorName);
   },
 
   getUserId: function (userName) {
@@ -60,26 +72,26 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   // should getting amounts and ids be deferred to individual loan views?
 
   getDebtorIds: function () {
+    var that = this;
     var debtorIds = [];
-    $('.debtor').each(function (debtor) {
-      var debtorName = debtor.val();
-      debtorIds.push(getUserId(debtorName));
+    $('.debtor-name').each(function (index) {
+      debtorIds.push(that.getUserId($(this).val()));
     });
     return debtorIds;
   },
 
   getLoanAmounts: function () {
     var loanAmounts = [];
-    $('.amount').each(function (i) {
-      loanAmounts.push(this.val());
+    $('.amount').each(function (index) {
+      loanAmounts.push($(this).val());
     });
     return loanAmounts;
   },
 
   makeDebtorsObject: function () {
     var debtorsObject = {};
-    var debtorIds = getDebtorIds();
-    var loanAmounts = getLoanAmounts();
+    var debtorIds = this.getDebtorIds();
+    var loanAmounts = this.getLoanAmounts();
     _.each(debtorIds, function (debtorId, index) {
       debtorsObject[debtorIds[index]] = loanAmounts[index];
     });

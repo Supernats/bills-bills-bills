@@ -17,10 +17,8 @@ BillApp.Routers.Router = Backbone.Router.extend({
   },
 
   transactionNew: function () {
-    var view = new BillApp.Views.TransactionForm({
-      collection: BillApp.transactions,
-      model: new BillApp.Models.Transaction()
-    });
+    var view = new BillApp.Views.TransactionNew();
+    this._swapView(view);
   },
 
   transactionIndex: function () {

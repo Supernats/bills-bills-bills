@@ -4,6 +4,9 @@ window.BillApp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    // Hard-coding in a user id here is not the True Path. How do I get that data?
+    // could be done by bootstrapping the current user into the application html,
+    // but I really feel there should be a better way. TA Question time!
     BillApp.user = new BillApp.Models.User({ id: 1 });
     BillApp.user.fetch().done(afterDone)
   }
@@ -18,7 +21,6 @@ var afterDone = function (bool) {
   if (n > 0) {
     n -= 1;
   } else {
-    console.log("SUCCESS!!!");
     BillApp.transactions = BillApp.user.get('transactions');
     BillApp.friends = BillApp.user.get('friends');
     BillApp.debts = BillApp.user.get('debts');
