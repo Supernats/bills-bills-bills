@@ -31,10 +31,8 @@ Rails is such a TODO:
 + [x] - Users show in JSON
 + [ ] - Streamlining: A transaction could easily be instantiated with a creditor, and have all loans within point to that user
 + [ ] - Transaction show JSON
-+ [ ] - Transaction new JSON
-+ [ ] - Loan new JSON (To be included in Transaction new)
-+ [ ] - Loan show JSON (With option to make new transaction to settle up)
-+ [ ] - Add splitting functionality
++ [x] - Loan show JSON
++ [x] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
 + [x] - User pulldown queries could use some optimization
 + [ ] - ...and maybe a little more
@@ -55,12 +53,15 @@ Evolve! Become a member of phylum chordata:
     + [x] - Friend
 + [ ] - Views
     + [ ] - Transaction
-        + [ ] - New
+        + [x] - New
+            + [ ] - Track total amount and make loans add up
+            + [ ] - Should this total be tracked in the database for later show requests?
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index
     + [ ] - Loan
-        + [ ] - New
+        + [x] - New
+            + [ ] - Move debtor_id and loan amount collection logic to loan view rather than transaction?
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index
