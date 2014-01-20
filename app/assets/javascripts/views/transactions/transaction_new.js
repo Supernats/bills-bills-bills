@@ -53,7 +53,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   getCreditorId: function () {
-    var creditorName = $('#creditor').val();
+    var creditorName = $('#creditor_name').val();
     return this.getUserId(creditorName);
   },
 
