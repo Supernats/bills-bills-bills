@@ -5,7 +5,8 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
 
   events: {
     "click #transaction_submit": "submit",
-    "click #add_debtor": "addDebtor"
+    "click #add_debtor": "addDebtor",
+    "click #split_evenly": "splitEvenly"
   },
 
   render: function () {
@@ -68,6 +69,18 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     return user.id;
   },
 
+  splitEvenly: function (event) {
+    event.preventDefault();
+    var total = $('#transaction_total').val();
+    var parties = $('.debtor-name').length + $('#creditor_name').length;
+    var evenShare = total / parties;
+    var remnant = total % parties;
+    $('#creditor_share').val(evenShare + remnant);
+    $('.debtor-share').each(function (index) {
+      $(this).val(evenShare);
+    });
+  },
+
   // TA/Ned question
   // should getting amounts and ids be deferred to individual loan views?
 
@@ -82,7 +95,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
 
   getLoanAmounts: function () {
     var loanAmounts = [];
-    $('.amount').each(function (index) {
+    $('.debtor-share').each(function (index) {
       loanAmounts.push($(this).val());
     });
     return loanAmounts;
