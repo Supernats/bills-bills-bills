@@ -8,7 +8,7 @@
     name="transaction[description]"
   >
 
-  <label for="transaction_total>Total Amount</label>
+ <label for="transaction_total">Total Amount</label>
   <input
     type="number"
     id="transaction_total"
@@ -18,17 +18,20 @@
   <label for="transaction_date">Date</label>
   <input type="date" id="transaction_date" name="transaction[date]">
 
-  <label for="creditor_name">Creditor</label>
-  <input
-    type="text"
-    id="creditor_name"
-    placeholder="creditor"
-  >
-  <label for="creditor_share">Creditor Share</label>
-  <input
-    type="number"
-    id="creditor_share"
-  >
+  <div id="creditor">
+    <label for="creditor_name">Creditor</label>
+    <input
+      type="text"
+      id="creditor_name"
+      placeholder="creditor"
+    >
+    <label for="creditor_share">Creditor Share</label>
+    <input
+      type="number"
+      id="creditor_share"
+    >
+  </div>
+
 </div>
 
 <div id="debtors">
