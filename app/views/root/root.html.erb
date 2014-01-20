@@ -1,7 +1,13 @@
 <div id="content"></div>
 
+<script type="text/data" id="userData">
+  <%= current_user.to_json(:only => [:id]).html_safe %>
+</script>
+
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    BillApp.initialize();
+    var userData = $('#userData').html();
+    var currentUser = new BillApp.Models.User(userData);
+    BillApp.initialize(currentUser);
   });
 </script>

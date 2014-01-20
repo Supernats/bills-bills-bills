@@ -6,7 +6,9 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   events: {
     "click #transaction_submit": "submit",
     "click #add_debtor": "addDebtor",
-    "click #split_evenly": "splitEvenly"
+    "keyup #transaction_total": "splitEvenly",
+    "click .unmodified-amount": "clearField",
+    "keyup .modified-amount": "splitEvenly",
   },
 
   render: function () {
@@ -18,6 +20,13 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   addDebtor: function (event) {
     var loanNew = new BillApp.Views.LoanNew();
     this.$('#debtors').append(loanNew.render().$el);
+  },
+
+  clearField: function (event) {
+    var field = $(event.currentTarget);
+    field.val(0);
+    field.removeClass('unmodified-amount');
+    field.addClass('modified-amount');
   },
 
   submit: function (event) {
@@ -48,7 +57,6 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
         debtor_id: debtorId,
         amount: loanAmount
       });
-      debugger
       loan.save();
     });
   },
@@ -70,9 +78,13 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   splitEvenly: function (event) {
-    event.preventDefault();
     var total = $('#transaction_total').val();
-    var parties = $('.debtor-name').length + $('#creditor_name').length;
+    var modifiedAmount = 0;
+    $('.modified-amount').each( function (index) {
+      modifiedAmount += parseInt($(this).val());
+    });
+    total -=  modifiedAmount;
+    var parties = $('.unmodified-amount').length;
     var evenShare = Math.floor(total / parties);
     var remnant = total % parties;
     var splits = [];
@@ -83,8 +95,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
         remnant--;
       }
     });
-    $('#creditor_share').val(splits.shift());
-    $('.debtor-share').each(function (index) {
+    $('.unmodified-amount').each(function (index) {
       $(this).val(splits.shift());
     });
   },
