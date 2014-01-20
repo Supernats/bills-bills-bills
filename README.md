@@ -4,6 +4,8 @@ TA Issues:
 + Bootstrapping current user (bill-app.js)
 + jquery.serializeJSON is causing errors when attempting to push to Heroku
 + Whether loan data should be collected by loan view and sent up to transaction
+    + views/transactions/tranaction-new.js
+    + view/loans/loan-new.js
 
 
 Basic stuff:
@@ -97,4 +99,4 @@ You're awesome! Start using other people's work for validation, even if you're p
 
 
 jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller.  
-Thanks, Jeff! Your words put me back on the True Path.
++ Thanks, Jeff! Your words put me back on the True Path.
