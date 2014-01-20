@@ -62,12 +62,12 @@ Evolve! Become a member of phylum chordata:
         + [ ] - Index
 + [ ] - Templates
     + [ ] - Transaction
-        + [ ] - New
+        + [x] - New
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index
     + [ ] - Loan
-        + [ ] - New
+        + [x] - New
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index
