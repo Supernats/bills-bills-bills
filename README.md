@@ -54,13 +54,16 @@ Evolve! Become a member of phylum chordata:
     + [ ] - Transaction
         + [x] - New
             + [x] - Track total amount and make loans add up
-            + [ ] - Should this total be tracked in the database for later show requests?
+            + [x] - Should this total be tracked in the database for later show requests?
+                Yup. Totally nailed it, bro.  
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index
+            Probably doesn't make sense  
     + [ ] - Loan
         + [x] - New
             + [ ] - Move debtor_id and loan amount collection logic to loan view rather than transaction?
+                Seems to be working fine; leave it be  
         + [ ] - Item
         + [ ] - Detail
         + [ ] - Index

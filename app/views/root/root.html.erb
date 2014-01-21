@@ -6,7 +6,7 @@
 
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    var userData = $('#userData').html();
+    var userData = JSON.parse($('#userData').html());
     var currentUser = new BillApp.Models.User(userData);
     BillApp.initialize(currentUser);
   });
