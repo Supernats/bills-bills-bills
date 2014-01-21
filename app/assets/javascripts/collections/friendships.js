@@ -1,4 +1,4 @@
-BillApp.Collections.Friends = Backbone.Collection.extend({
-  url: "/api/friends",
-  model: BillApp.Models.Friend
+BillApp.Collections.Friendships = Backbone.Collection.extend({
+  url: "/api/friendships",
+  model: BillApp.Models.Friendship
 });
