@@ -9,8 +9,10 @@
 <body>
 
   <%= render 'shared/errors' %>
-
-<%= yield %>
+  <%= render 'shared/navbar' %>
+  <div id="#static_content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

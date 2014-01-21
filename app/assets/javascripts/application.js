@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require jquery.serializeJSON
+//= require bootstrap
 //= require bill_app
 //= require_tree ../templates
 //= require_tree ./models

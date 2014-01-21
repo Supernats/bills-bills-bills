@@ -7,7 +7,6 @@ window.BillApp = {
     // Hard-coding in a user id here is not the True Path. How do I get that data?
     // could be done by bootstrapping the current user into the application html,
     // but I really feel there should be a better way. TA Question time!
-    debugger
     BillApp.user = currentUser;
     BillApp.user.fetch().done(afterDone);
   }

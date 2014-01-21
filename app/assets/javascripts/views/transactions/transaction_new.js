@@ -114,9 +114,6 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     });
   },
 
-  // TA/Ned question
-  // should getting amounts and ids be deferred to individual loan views?
-
   getDebtorIds: function () {
     var that = this;
     var debtorIds = [];
