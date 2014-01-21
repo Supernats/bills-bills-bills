@@ -28,7 +28,8 @@ json.debts @user.debts do |debt|
     :transaction_id,
     :creditor_id,
     :amount,
-    :description
+    :description,
+    :date
   )
 end
 
@@ -39,6 +40,7 @@ json.credits @user.credits do |credit|
     :transaction_id,
     :debtor_id,
     :amount,
-    :description
+    :description,
+    :date
   )
 end

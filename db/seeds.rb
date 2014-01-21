@@ -1,10 +1,45 @@
 # Create users
-nathan = User.create(:username => "Nathan", :password => "password")
-david = User.create(:username => "David", :password => "password")
-rory = User.create(:username => "Rory", :password => "password")
-john = User.create(:username => "John", :password => "password")
-ned = User.create(:username => "Ned", :password => "password")
+nathan = RegisteredUser.create(
+  :email => "nathan@billapp.com",
+  :username => "Nathan",
+  :password => "password"
+)
+david = RegisteredUser.create(
+  :email => "david@billapp.com",
+  :username => "David",
+  :password => "password"
+)
+rory = RegisteredUser.create(
+  :email => "rory@billapp.com",
+  :username => "Rory",
+  :password => "password"
+)
+john = RegisteredUser.create(
+  :email => "john@billapp.com",
+  :username => "John",
+  :password => "password"
+)
+ned = RegisteredUser.create(
+  :email => "ned@billapp.com",
+  :username => "Ned",
+  :password => "password"
+)
 
+cj = UnregisteredUser.create(
+  :email => "cj@billapp.com"
+)
+
+jeff = UnregisteredUser.create(
+  :email => "jeff@billapp.com"
+)
+
+ryan = UnregisteredUser.create(
+  :email => "ryan@billapp.com"
+)
+
+flarnie = UnregisteredUser.create(
+  :email => "flarnie@billapp.com"
+)
 # Create transaaction objects
 nathan_rory_john = Transaction.create(
   :description => "Nathan paid for Rory and John: 20+10=30",

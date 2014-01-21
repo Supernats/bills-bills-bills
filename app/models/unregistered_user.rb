@@ -1,0 +1,3 @@
+class UnregisteredUser < User
+
+end

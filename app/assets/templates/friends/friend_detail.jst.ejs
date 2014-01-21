@@ -1,11 +1,41 @@
-<%= friend.username %>
-
-<% if (friendCredits) { %>
-<p>Owes you</p>
-  <table>
-  
-    <% _.each(friendCredits(function (friendCredit, index) { %>
-
-    <% } %>
+<div id="friend_summary" class="row">
+  <table class="table">
+    <tr>
+      <th id="friend_name" class="text-center">
+        <%= friend.get('username') %>
+      </th>
+      <th id="friend_balance" class="text-center">
+        <%= friend.get('balance') %>
+      </th>
+    </tr>
   </table>
-<% } %>
+</div>
+<div id="friend_credits" class="row">
+  <% if (friendCredits.length > 0) { %>
+  <p>Owes you</p>
+    <table class="table">
+    <% _.each(friendCredits, function (friendCredit, index) { %>
+      <tr>
+        <td><%= friendCredit.get('description') %></td>
+        <td><%= friendCredit.get('date') %></td>
+        <td><%= friendCredit.get('amount') %></td>
+      </tr>
+    <% }); %>
+    </table>
+  <% } %>
+</div>
+
+<div id="friend_debts" class="row">
+  <% if (friendDebts.length > 0) { %>
+  <p>You owe</p>
+    <table class="table">
+    <% _.each(friendDebts, function (friendDebt, index) { %>
+      <tr>
+        <td><%= friendDebt.get('description') %></td>
+        <td><%= friendDebt.get('date') %></td>
+        <td><%= friendDebt.get('amount') %></td>
+      </tr>
+    <% }); %>
+    </table>
+  <% } %>
+ </div>

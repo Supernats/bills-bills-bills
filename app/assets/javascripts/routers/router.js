@@ -13,7 +13,23 @@ BillApp.Routers.Router = Backbone.Router.extend({
     "debts/:id": "debtShow",
     "credits": "creditIndex",
     "credits/new": "creditNew",
-    "credits/:id": "creditShow"
+    "credits/:id": "creditShow",
+    "friends/new": "friendNew",
+    "friends/:id": "friendDetail"
+  },
+
+  friendNew: function () {
+    var view = new BillApp.View.FriendNew({
+
+    });
+    this._swapView(view);
+  },
+
+  friendDetail: function (id) {
+    var view = new BillApp.Views.FriendDetail({
+      model:  BillApp.friends.get(id)
+    });
+    this._swapView(view);
   },
 
   transactionNew: function () {
@@ -83,8 +99,8 @@ BillApp.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
-    this._current_view && this._currentView.remove();
-    this._current_view =  view;
+    this._currentView && this._currentView.remove();
+    this._current_view = view;
     this.$rootEl.html(view.render().$el);
   }
 });
