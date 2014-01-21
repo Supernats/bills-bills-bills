@@ -1,5 +1,5 @@
 BillApp.Views.FriendDetail = Backbone.View.extend({
-  template: JST['friends/friend_detail'],
+  template: JST['friends/detail'],
   render: function () {
     var renderedContent = this.template({
       friend: this.model,

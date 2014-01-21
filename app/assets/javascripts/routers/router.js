@@ -14,8 +14,8 @@ BillApp.Routers.Router = Backbone.Router.extend({
     "credits": "creditIndex",
     "credits/new": "creditNew",
     "credits/:id": "creditShow",
-    "friends/new": "friendNew",
-    "friends/:id": "friendDetail"
+    "friendships/new": "friendNew",
+    "friendships/:id": "friendDetail"
   },
 
   friendNew: function () {
