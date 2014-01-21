@@ -66,6 +66,11 @@ nathan_rory = Transaction.create(
   :total => 30
 )
 
+cj_nathan = Transaction.create(
+  :description => "CJ paid for Nathan: 25=25",
+  :total => 25
+)
+
 # Create loans for transaction
 # Transaction 1: Nathan => Rory and John
 Loan.create(
@@ -128,6 +133,14 @@ Loan.create(
   :amount => 30
 )
 
+# Transaction 7: CJ => Nathan
+Loan.create(
+  :transaction_id => cj_nathan.id,
+  :creditor_id => cj.id,
+  :debtor_id => nathan.id,
+  :amount => 25
+)
+
 # Seed Friendships
 Friendship.create(
   :target_friend_id => nathan.id,
@@ -162,4 +175,9 @@ Friendship.create(
 Friendship.create(
   :target_friend_id => david.id,
   :source_friend_id => ned.id
+)
+
+Friendship.create(
+  :target_friend_id => cj.id,
+  :source_friend_id => nathan.id
 )
