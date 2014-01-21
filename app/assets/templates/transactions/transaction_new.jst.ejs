@@ -1,0 +1,42 @@
+<div class="row" id="transaction_start">
+  <div class="row">
+    <label for="transaction_description">Description</label>
+    <input
+      type="text"
+      id="transaction_description"
+      placeholder="description"
+      name="transaction[description]"
+    >
+   <label for="transaction_total">Total Amount</label>
+    <input
+      type="number"
+      id="transaction_total"
+      name="transaction[total]"
+    >
+    <label for="transaction_date">Date</label>
+    <input type="date" id="transaction_date" name="transaction[date]">
+  </div>
+
+  <div class="row" id="creditor">
+    <label for="creditor_name">Creditor</label>
+    <input
+      type="text"
+      id="creditor_name"
+      placeholder="creditor"
+    >
+    <label for="creditor_share">Creditor Share</label>
+    <input
+      type="number"
+      id="creditor_share"
+      class="unmodified-amount"
+    >
+  </div>
+</div>
+
+<div class="row" id="debtors">
+</div>
+
+<div class="row" id="transaction_end">
+  <button id="add_debtor">Add Debtor</button>
+  <input type="submit" id="transaction_submit">
+</div>
