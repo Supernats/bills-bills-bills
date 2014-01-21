@@ -36,6 +36,8 @@ Rails is such a TODO:
 + [x] - User pulldown queries could use some optimization
 + [ ] - ...and maybe a little more
 + [x] - Add Friendships join table so users can keep track of who they split with
++ [x] - Track transaction history for unregistered users
++ [ ] - Link up existing unregistered user data when user signs up (link by email)
 
 Evolve! Become a member of phylum chordata:
 + [ ] - Pass actual userid on kickoff
@@ -102,4 +104,4 @@ You're awesome! Start using other people's work for validation, even if you're p
 
 
 jeff's words: make a `loans` backbone collection. Make collections for `credits` and `debts`. They both `extend` `loans`. `loans` will have a `url` propert pointing to the loans rails controller.  
-+ Thanks, Jeff! Your words put me back on the True Path.
+    Thanks, Jeff! Your words put me back on the True Path.

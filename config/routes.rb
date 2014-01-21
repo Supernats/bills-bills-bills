@@ -3,8 +3,8 @@ BillApp::Application.routes.draw do
   resources :users
   resource :session, :only => [:new, :create, :destroy]
   namespace :api, :defaults => { :format => :json } do
-    resources :users, :only => [:show]
-    resources :friends
+    resources :users, :only => [:show, :index, :create]
+    resources :friendships
     resources :transactions
     resources :loans
   end

@@ -21,11 +21,12 @@ var afterDone = function (bool) {
   if (n > 0) {
     n -= 1;
   } else {
+    BillApp.otherUsers = new BillApp.Collections.OtherUsers();
     BillApp.transactions = BillApp.user.get('transactions');
     BillApp.friends = BillApp.user.get('friends');
     BillApp.debts = BillApp.user.get('debts');
     BillApp.credits = BillApp.user.get('credits');
-    BillApp.Router = new BillApp.Routers.Router({ $rootEl: $('#content') });
+    BillApp.router = new BillApp.Routers.Router({ $rootEl: $('#content') });
     Backbone.history.start();
   }
 };
