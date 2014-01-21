@@ -29,7 +29,6 @@ Rails is such a TODO:
 + [x] - Creditors know their balance with a debtor
 + [x] - Debtors know their balance with a creditor
 + [x] - Users show in JSON
-+ [ ] - Streamlining: A transaction could easily be instantiated with a creditor, and have all loans within point to that user
 + [ ] - Transaction show JSON
 + [x] - Loan show JSON
 + [x] - Add splitting functionality
@@ -54,7 +53,7 @@ Evolve! Become a member of phylum chordata:
 + [ ] - Views
     + [ ] - Transaction
         + [x] - New
-            + [ ] - Track total amount and make loans add up
+            + [x] - Track total amount and make loans add up
             + [ ] - Should this total be tracked in the database for later show requests?
         + [ ] - Item
         + [ ] - Detail

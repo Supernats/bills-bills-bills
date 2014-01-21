@@ -6,12 +6,30 @@ john = User.create(:username => "John", :password => "password")
 ned = User.create(:username => "Ned", :password => "password")
 
 # Create transaaction objects
-nathan_rory_john = Transaction.create(:description => "Nathan paid for Rory and John: 20+10=30")
-david_john_nathan = Transaction.create(:description => "David paid for John and Nathan: 30+10=60")
-david_rory = Transaction.create(:description => "David paid for Rory: 15=15")
-john_david = Transaction.create(:description => "John paid for David: 25=25")
-nathan_david = Transaction.create(:description => "Nathan paid for David: 100=100")
-nathan_rory = Transaction.create(:description => "Nathan paid for Rory: 30=30")
+nathan_rory_john = Transaction.create(
+  :description => "Nathan paid for Rory and John: 20+10=30",
+  :total => 30
+)
+david_john_nathan = Transaction.create(
+  :description => "David paid for John and Nathan: 30+10=40",
+  :total => 40
+)
+david_rory = Transaction.create(
+  :description => "David paid for Rory: 15=15",
+  :total => 15
+)
+john_david = Transaction.create(
+  :description => "John paid for David: 25=25",
+  :total => 25
+)
+nathan_david = Transaction.create(
+  :description => "Nathan paid for David: 100=100",
+  :total => 100
+)
+nathan_rory = Transaction.create(
+  :description => "Nathan paid for Rory: 30=30",
+  :total => 30
+)
 
 # Create loans for transaction
 # Transaction 1: Nathan => Rory and John
