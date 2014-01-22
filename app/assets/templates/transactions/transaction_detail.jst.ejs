@@ -1,7 +1,9 @@
+<h1><%= transaction.get('description') %></h1>
+<%= console.log(transaction) %>
 <table class="table">
   <tr>
-    <th><%= transaction.escape('description') %></th>
-    <th><%= transaciton.esacpe('total') %></th>
+    <th></th>
+    <th><%= transaction.get('total') %></th>
   </tr>
   <% _.each(creditor, function (value, key) { %>
     <tr class="creditor-row">

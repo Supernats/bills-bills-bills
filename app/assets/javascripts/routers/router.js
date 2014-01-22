@@ -63,11 +63,9 @@ BillApp.Routers.Router = Backbone.Router.extend({
 
     var n = 1;
     function _createView() {
-      console.log("in createView");
       if (n > 0) {
         n--;
       } else {
-        console.log("all fetches done");
         var view = new BillApp.Views.TransactionDetail({
           model: transaction
         });
