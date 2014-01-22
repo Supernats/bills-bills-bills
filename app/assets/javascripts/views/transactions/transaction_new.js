@@ -18,6 +18,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   addDebtor: function (event) {
+    event.preventDefault();
     var loanNew = new BillApp.Views.LoanNew();
     this.$('#debtors').append(loanNew.render().$el);
   },

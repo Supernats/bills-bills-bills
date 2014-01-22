@@ -22,7 +22,6 @@ BillApp.Routers.Router = Backbone.Router.extend({
     var that = this;
     BillApp.otherUsers.fetch().done(_createView);
     function _createView () {
-      console.log("in createview");
       var view = new BillApp.Views.FriendNew({
         model: new BillApp.Models.Friend(),
         collection: BillApp.friends,

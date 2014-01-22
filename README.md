@@ -42,6 +42,7 @@ Rails is such a TODO:
 Evolve! Become a member of phylum chordata:
 + [ ] - Pass actual userid on kickoff
 + [x] - Collections
+    + [ ] - Add listeners
     + [x] - Debts
     + [x] - Credits
     + [x] - Transactions
@@ -70,9 +71,9 @@ Evolve! Become a member of phylum chordata:
         + [ ] - Detail
         + [ ] - Index
     + [ ] - Friend
-        + [ ] - New
+        + [x] - New
         + [ ] - Item
-        + [ ] - Detail
+        + [x] - Detail
         + [ ] - Index
 + [ ] - Templates
     + [ ] - Transaction
@@ -86,9 +87,9 @@ Evolve! Become a member of phylum chordata:
         + [ ] - Detail
         + [ ] - Index
     + [ ] - Friend
-        + [ ] - New
+        + [x] - New
         + [ ] - Item
-        + [ ] - Detail
+        + [x] - Detail
         + [ ] - Index
 + [ ] - Router
 + [ ] - Conquer the world through drag and drop. DRAG AND DROP EVERYWHERE!
