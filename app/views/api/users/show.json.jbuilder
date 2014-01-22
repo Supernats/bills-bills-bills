@@ -3,7 +3,8 @@ json.(
   :id,
   :username,
   :total_owed_to_other_users,
-  :total_owed_by_other_users
+  :total_owed_by_other_users,
+  :email
 )
 
 json.friends @user.friends do |friend|

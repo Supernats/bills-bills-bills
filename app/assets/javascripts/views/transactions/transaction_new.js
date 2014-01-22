@@ -76,19 +76,43 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   },
 
   getCreditorId: function () {
+    debugger
     var creditorName = $('#creditor_name').val();
     return this.getUserId(creditorName);
   },
 
-  getUserId: function (userName) {
-    if (userName === BillApp.user.get("username")) {
-      var user = BillApp.user;
+  getUserId: function (text) {
+    if (this.getUserIdByUsername(text)) {
+      return this.getUserIdByUsername(text);
+    } else {
+      return this.getUserIdByEmail(text)
+    }
+  },
+
+  getUserIdByUsername: function (username) {
+    if (username === BillApp.user.get('username')) {
+      var user = BillApp.user
     } else {
       var user = BillApp.friends.findWhere({
-        "username": userName
+        "username": username
       });
     }
-    return user.id;
+    if (user) {
+      return user.id
+    }
+  },
+
+  getUserIdByEmail: function (email) {
+    if (email === BillApp.user.get('email')) {
+      var user = BillApp.user
+    } else {
+      var user = BillApp.friends.findWhere({
+        "email": email
+      });
+    }
+    if (user) {
+      return user.id
+    }
   },
 
   splitEvenly: function (event) {
