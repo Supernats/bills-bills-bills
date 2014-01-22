@@ -8,6 +8,7 @@ json.(
 
 json.friends @user.friends do |friend|
   json.id friend.id
+  json.email friend.email
   json.username friend.username
   json.balance @user.balance_with_other_user(friend)
 end

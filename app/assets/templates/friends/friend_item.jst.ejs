@@ -1,0 +1,41 @@
+<div id="debtor_summary">
+  <% if (totalCredit > 0 && debtors.length > 0) { %>
+  <table class="table" id="debtors_table">
+    <tr>
+      <th>Friends owe you</th>
+      <th><%= totalCredit %></th> 
+    </tr>
+    <% _.each(debtors, function (debtor, index) { %>
+    <tr>
+      <td><%= debtor.get('email') %></td>
+      <td><%= debtor.get('balance') %></td>
+    </tr>
+    <% }); %>
+  </table>
+  <% } else { %> 
+  <div class="jumbotron">
+    <p>Don't nobody owe you nothin!</a>
+  </div>
+  <% } %>
+</div>
+
+<div id="creditor_summary">
+  <% if (totalDebt > 0 && creditors.length > 0) { %>
+  <table class="table" id="creditors_table">
+    <tr>
+      <th>Friends owe you</th>
+      <th><%= totalCredit %></th> 
+    </tr>
+    <% _.each(creditors, function (creditor, index) { %>
+    <tr>
+      <td><%= creditor.get('email') %></td>
+      <td><%= creditor.get('balance') %></td>
+    </tr>
+    <% }); %>
+  </table>
+  <% } else { %> 
+  <div class="jumbotron">
+    <p>You don't owe nothin' to nobody! Get down with your fiscally sound self!</a>
+  </div>
+  <% } %>
+</div>
