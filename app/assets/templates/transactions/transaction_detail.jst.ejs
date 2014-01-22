@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th><%= transaction.escape('description') %></th>
+    <th><%= transaciton.esacpe('total') %></th>
+  </tr>
+  <% _.each(creditor, function (value, key) { %>
+    <tr class="creditor-row">
+      <td><%= escape(key) %></td>
+      <td><%= escape(value) %></td>
+    </tr>
+  <% }); %>
+  <% _.each(debtors, function (value, key) { %>
+    <tr class="debtor-row">
+      <td><%= escape(key) %></td>
+      <td><%= escape(value) %></td>
+    </tr>
+  <% }); %>
+</table>

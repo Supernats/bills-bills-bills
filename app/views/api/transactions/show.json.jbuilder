@@ -1,0 +1,10 @@
+json.(
+  @transaction,
+  :date,
+  :description,
+  :total,
+  :creditor_id,
+  :creditor_share,
+  :debtor_ids,
+  :loans
+)

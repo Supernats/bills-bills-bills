@@ -42,33 +42,33 @@ flarnie = UnregisteredUser.create(
 )
 # Create transaaction objects
 nathan_rory_john = Transaction.create(
-  :description => "Nathan paid for Rory and John: 20+10=30",
-  :total => 30
+  :description => "Nathan paid for Rory and John: 20+20+10=50",
+  :total => 50
 )
 david_john_nathan = Transaction.create(
-  :description => "David paid for John and Nathan: 30+10=40",
-  :total => 40
+  :description => "David paid for John and Nathan: 20+30+10=60",
+  :total => 60
 )
 david_rory = Transaction.create(
-  :description => "David paid for Rory: 15=15",
-  :total => 15
-)
-john_david = Transaction.create(
-  :description => "John paid for David: 25=25",
+  :description => "David paid for Rory: 10+15=25",
   :total => 25
 )
+john_david = Transaction.create(
+  :description => "John paid for David: 20+25=45",
+  :total => 45
+)
 nathan_david = Transaction.create(
-  :description => "Nathan paid for David: 100=100",
-  :total => 100
+  :description => "Nathan paid for David: 50+100=150",
+  :total => 150
 )
 nathan_rory = Transaction.create(
-  :description => "Nathan paid for Rory: 30=30",
-  :total => 30
+  :description => "Nathan paid for Rory: 60+30=90",
+  :total => 90
 )
 
 cj_nathan = Transaction.create(
-  :description => "CJ paid for Nathan: 25=25",
-  :total => 25
+  :description => "CJ paid for Nathan: 10+25=35",
+  :total => 35
 )
 
 # Create loans for transaction

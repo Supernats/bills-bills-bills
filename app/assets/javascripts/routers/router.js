@@ -55,12 +55,25 @@ BillApp.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  transactionDetail: function () {
+  transactionDetail: function (id) {
+    var that = this;
     var transaction = BillApp.transactions.get(id);
-    var view = new BillApp.Views.TransactionShow({
-      model: transaction
-    });
-    this._swapView(view);
+    BillApp.otherUsers.fetch().done(_createView);
+    transaction.fetch().done(_createView);
+
+    var n = 1;
+    function _createView() {
+      console.log("in createView");
+      if (n > 0) {
+        n--;
+      } else {
+        console.log("all fetches done");
+        var view = new BillApp.Views.TransactionDetail({
+          model: transaction
+        });
+        that._swapView(view);
+      }
+    }
   },
 
   debtIndex: function () {

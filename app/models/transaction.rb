@@ -10,7 +10,7 @@ class Transaction < ActiveRecord::Base
   has_many :creditors, :through => :loans
   has_many :debtors, :through => :loans
 
-  def amount
+  def covered_amount
     sum = 0
     self.loans.each { |loan| sum += loan.amount }
     sum
@@ -18,6 +18,14 @@ class Transaction < ActiveRecord::Base
 
   def creditor
     self.creditors.first
+  end
+
+  def creditor_id
+    self.creditor.id
+  end
+
+  def creditor_share
+    total - covered_amount
   end
 
   def debtor_ids

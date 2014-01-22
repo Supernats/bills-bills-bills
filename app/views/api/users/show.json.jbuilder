@@ -19,7 +19,8 @@ json.transactions @user.transactions do |transaction|
     transaction,
     :id,
     :date,
-    :description
+    :description,
+    :total
   )
 end
 
