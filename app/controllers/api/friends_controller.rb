@@ -4,6 +4,7 @@ class Api::FriendsController < ApplicationController
   # it's not great, but it's gonna have to work for now
   def index
     @friends = current_user.friends
+    render :json => @friends
   end
 
   def create

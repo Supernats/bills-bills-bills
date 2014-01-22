@@ -13,15 +13,15 @@ Rails is such a TODO:
 + [x] - Sign up
 + [x] - Sign in
 + [ ] - Forgotten password
-+ [ ] - Add email to user signup.
-+ [ ] - Use email for sign-in?
++ [x] - Add email to user signup.
++ [x] - Use email for sign-in?
 + [x] - Creditors know their debtors
 + [x] - Debtors know their creditors
 + [x] - Users know their total balance
 + [x] - Creditors know their balance with a debtor
 + [x] - Debtors know their balance with a creditor
 + [x] - Users show in JSON
-+ [ ] - Transaction show JSON
++ [x] - Transaction show JSON
 + [x] - Loan show JSON
 + [x] - Add splitting functionality
 + [ ] - Send emails to debtors on transaction creation
@@ -29,10 +29,10 @@ Rails is such a TODO:
 + [ ] - ...and maybe a little more
 + [x] - Add Friendships join table so users can keep track of who they split with
 + [x] - Track transaction history for unregistered users
-+ [ ] - Link up existing unregistered user data when user signs up (link by email)
++ [x] - Link up existing unregistered user data when user signs up (link by email)
 
 Evolve! Become a member of phylum chordata:
-+ [ ] - Pass actual userid on kickoff
++ [x] - Pass actual userid on kickoff
 + [x] - Collections
     + [ ] - Add listeners
     + [x] - Debts

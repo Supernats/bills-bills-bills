@@ -7,7 +7,7 @@ BillApp.Routers.Router = Backbone.Router.extend({
     "": "friendIndex",
     "transactions": "transactionIndex",
     "transactions/new": "transactionNew",
-    "transactions/:id": "transactionShow",
+    "transactions/:id": "transactionDetail",
     "debts": "debtIndex",
     "debts/new": "debtNew",
     "debts/:id": "debtShow",
@@ -55,7 +55,7 @@ BillApp.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  transactionShow: function () {
+  transactionDetail: function () {
     var transaction = BillApp.transactions.get(id);
     var view = new BillApp.Views.TransactionShow({
       model: transaction
