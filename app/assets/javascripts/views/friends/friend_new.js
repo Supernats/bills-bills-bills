@@ -5,6 +5,10 @@ BillApp.Views.FriendNew = Backbone.View.extend({
   className: 'form',
   template: JST['friends/friend_new'],
 
+  events: {
+
+  },
+
   render: function () {
 
   },
@@ -41,7 +45,11 @@ BillApp.Views.FriendNew = Backbone.View.extend({
   },
 
   createFriend: function (friendId) {
-    var newFriend = new Backbone.Models
+    var newFriend = new Backbone.Models.Friend({
+      target_friend_id: friendId,
+      source_friend_id: BillApp.user.id
+    });
+    newFriend.save();
   },
 
-});
+})i
