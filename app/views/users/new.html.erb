@@ -1,5 +1,11 @@
 <h1>Sign Up</h1>
-<form action="<%= users_url %>" method="POST">
+<div class="row">
+  <form class="" action="<%= users_url %>" method="POST">
+    <div class="form-group">
+      <label for="user_username">Username</label>
+      <input class="form-control" type="text" id="user_username" placeholder="username">
+    </div>
   <%= render "shared/auth_form", :user => @user %>
-  <input type="submit" value="Sign Up">
+  <input class="btn form-control form-group" type="submit" value="Sign Up">
 </form>
+</div>

@@ -9,13 +9,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      login_user!(@user)
-      redirect_to user_url(@user)
+    @user = User.find_by_email(params[:user][:email])
+    if @user
+      @user.type = 'RegisteredUser'
+      if @user.update_attributes(params[:user])
+        login_user!(@user)
+        redirect_to root_url
+      else
+        flash.now[:errors] = @user.errors.full_messages
+        render :new
+      end
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      @user = User.new(params[:user])
+      if @user.save
+        login_user!(@user)
+        redirect_to root_url
+      else
+        flash.now[:errors] = @user.errors.full_messages
+        render :new
+      end
     end
   end
 
