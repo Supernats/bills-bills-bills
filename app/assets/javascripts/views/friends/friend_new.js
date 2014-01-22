@@ -22,16 +22,20 @@ BillApp.Views.FriendNew = Backbone.View.extend({
     event.preventDefault();
     var email = $('#friend_email').val();
     if (!that.checkForExtantUser(email)) {
-      that.createUnregisteredUser(email, function () {
+      that.createUnregisteredUser(email, function (model) {
         prospectiveFriend = model;
+        that.createFriend(prospectiveFriend.id, function() {
+          // should give a render/redirect to somewhere else, for now just alert
+          window.alert("saved");
+        });
       });
     } else {
       prospectiveFriend = BillApp.otherUsers.findWhere({ email: email });
+      that.createFriend(prospectiveFriend.id, function() {
+        // should give a render/redirect to somewhere else, for now just alert
+        window.alert("saved");
+      });
     }
-    that.createFriend(prospectiveFriend.id, function() {
-      // redirect
-      window.alert("saved");
-    });
   },
 
   checkForExtantUser: function (email) {
@@ -42,8 +46,7 @@ BillApp.Views.FriendNew = Backbone.View.extend({
     var newUser = new BillApp.Models.OtherUser({
       email: email
     });
-    newUser.save({
-      wait: true,
+    newUser.save({},{
       success: callback
     });
     return newUser;
@@ -54,7 +57,7 @@ BillApp.Views.FriendNew = Backbone.View.extend({
       target_friend_id: friendId,
       source_friend_id: BillApp.user.id
     });
-    newFriend.save({ success: callback });
+    newFriend.save({}, { success: callback });
   },
 
 });

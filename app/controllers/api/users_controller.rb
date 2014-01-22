@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
 
   def create
     if !params[:user][:password]
-      @user = UnregisterUser.new(params[:user])
+      @user = UnregisteredUser.new(params[:user])
     end
     if @user.save
       render :json => @user
