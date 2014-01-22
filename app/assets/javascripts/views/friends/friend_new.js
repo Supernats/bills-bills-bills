@@ -1,9 +1,9 @@
 // collection: BillApp.friends,
 // otherUsers: BillApp.otherUsers
-BillApp.Views.FriendshipNew = Backbone.View.extend({
+BillApp.Views.FriendNew = Backbone.View.extend({
   tagName: 'form',
   className: 'form',
-  template: JST['friendships/new'],
+  template: JST['friends/friend_new'],
 
   render: function () {
 
@@ -40,8 +40,8 @@ BillApp.Views.FriendshipNew = Backbone.View.extend({
     return newUser;
   },
 
-  createFriendship: function (friendId) {
-    var newFriendship = new Backbone.Models
+  createFriend: function (friendId) {
+    var newFriend = new Backbone.Models
   },
 
 });

@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
       @user = UnregisterUser.new(params[:user])
     end
     if @user.save
-    render :json => @user
+      render :json => @user
     else
       render :json => @user.errors
     end
