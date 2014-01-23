@@ -1,5 +1,7 @@
 BillApp.Collections.Loans = Backbone.Collection.extend({
-  url: "/api/loans"
+  url: "/api/loans",
+
+  comparator: 'transaction_id'
 });
 
 BillApp.Collections.Debts = BillApp.Collections.Loans.extend({

@@ -6,7 +6,11 @@
       <th><%= totalCredit %></th> 
     </tr>
     <% _.each(debtors, function (debtor, index) { %>
-    <tr class="friend-row" data-id="<%= debtor.get('id') %>">
+    <tr
+      class="friend-row"
+      data-type="credit"
+      data-id="<%= debtor.get('id') %>"
+    >
       <td><%= debtor.get('email') %></td>
       <td><%= debtor.get('balance') %></td>
     </tr>
@@ -27,7 +31,11 @@
       <th><%= totalDebt %></th> 
     </tr>
     <% _.each(creditors, function (creditor, index) { %>
-    <tr class="friend-row" data-id="<%= creditor.get('id') %>">
+    <tr
+      class="friend-row"
+      data-type="debt"
+      data-id="<%= creditor.get('id') %>"
+    >
       <td><%= creditor.get('email') %></td>
       <td><%= creditor.get('balance') * -1 %></td>
     </tr>

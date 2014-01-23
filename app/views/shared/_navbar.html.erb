@@ -1,9 +1,17 @@
-<nav class="navbar-default">
-  <div id="sign_in_bar">
-    <% if logged_in? %>
-      <%= button_to "Sign Out", "#{ session_url }", :method => :delete %>
-    <% else %>
-      <%= link_to "Sign In", "#{ new_session_url }" %>
-    <% end %>
-  </div>
+<nav class="navbar navbar-default">
+
+  <ul class="nav navbar-nav">
+    <li><a href="#">Home</a></li>
+    <li><a href="#transactions/new">Record Transactions</a></li>
+    <li><a href="#friends/new">Add Friends</a></li>
+    <li><a href="#transactions">Transaction History</a></li>
+  </ul>
+
+  <ul class="nav navbar-right">
+    <li>
+      <% if logged_in? %>
+        <button class="btn btn-danger navbar-btn navbar-right">Sign Out</button>
+      <% end %>
+    </li>
+  </ul>
 </nav>

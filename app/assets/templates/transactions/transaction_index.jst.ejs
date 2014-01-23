@@ -1,0 +1,21 @@
+<h2>Your Transaction History</h2>
+
+<% if (loans.length > 0) { %>
+  <table class="table">
+    <% loans.each(function (loan) { %>
+      <tr
+      class="transaction-row"
+      data-id="<%= loan.get('transaction_id') %>"
+        <% if (loan.get('debtor_id')) { %>
+          data-type="credit"
+        <% } else { %>
+          data-type="debt"
+        <% } %>
+      >
+        <td><%= loan.get('description') %></td>
+        <td><%= loan.get('date') %></td>
+        <td><%= Math.abs(loan.get('amount')) %></td>
+      </tr>
+    <% }); %>
+    </table>
+<% } %>

@@ -23,12 +23,24 @@ BillApp.Views.FriendIndex = Backbone.View.extend({
       creditors: creditors
     });
     this.$el.html(renderedContent);
+    this.styleRows();
     return this;
   },
 
   toggleFocus: function (event) {
     event.preventDefault();
     $(event.currentTarget).toggleClass('success');
+    $(event.currentTarget).toggleClass('danger');
+  },
+
+  styleRows: function () {
+    this.$('.friend-row').each( function () {
+      if ($(this).attr('data-type') === 'debt') {
+        $(this).addClass('danger');
+      } else {
+        $(this).addClass('success');
+      }
+    });
   },
 
   visitFriendPage: function(event) {

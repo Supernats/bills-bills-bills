@@ -6,10 +6,8 @@ BillApp.Views.LoanNew = Backbone.View.extend({
   },
 
   removeDebtor: function (event) {
-    console.log("BUTTON CLICKED");
-    debugger
     event.preventDefault();
-    $(event.currentTarget).remove();
+    this.remove();
   },
 
   render: function () {

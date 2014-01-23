@@ -26,10 +26,12 @@ BillApp.Views.FriendDetail = Backbone.View.extend({
       description: "Settle up with " + this.model.get('email'),
       total: this.model.get('balance') * -1
     });
+
     BillApp.router.transactionNew({
       transaction: transaction,
       creditor: BillApp.user,
       debtor: this.model
     });
-  }
+    Backbone.history.navigate("#transactions/new");
+    }
 });

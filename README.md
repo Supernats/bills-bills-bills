@@ -45,46 +45,34 @@ Evolve! Become a member of phylum chordata:
     + [x] - Debt
     + [x] - Credit
     + [x] - Friend
-+ [ ] - Views
-    + [ ] - Transaction
++ [x] - Views
+    + [x] - Transaction
         + [x] - New
             + [x] - Track total amount and make loans add up
             + [x] - Should this total be tracked in the database for later show requests?
                 Yup. Totally nailed it, bro.  
-        + [ ] - Item
         + [x] - Detail
-        + [ ] - Index
+        + [x] - Index
             + Probably doesn't make sense  
                 + False, totally does. It's a transaction history for the user
-    + [ ] - Loan
+    + [x] - Loan
         + [x] - New
-            + [ ] - Move debtor_id and loan amount collection logic to loan view rather than transaction?
-                Seems to be working fine; leave it be  
-        + [ ] - Item
-        + [ ] - Detail
-        + [ ] - Index
-    + [ ] - Friend
+    + [x] - Friend
         + [x] - New
-        + [ ] - Item
         + [x] - Detail
-        + [ ] - Index
-+ [ ] - Templates
-    + [ ] - Transaction
+        + [x] - Index
++ [x] - Templates
+    + [x] - Transaction
         + [x] - New
-        + [ ] - Item
-        + [ ] - Detail
-        + [ ] - Index
-    + [ ] - Loan
-        + [x] - New
-        + [ ] - Item
-        + [ ] - Detail
-        + [ ] - Index
-    + [ ] - Friend
-        + [x] - New
-        + [ ] - Item
         + [x] - Detail
-        + [ ] - Index
-+ [ ] - Router
+        + [x] - Index
+    + [x] - Loan
+        + [x] - New
+    + [x] - Friend
+        + [x] - New
+        + [x] - Detail
+        + [x] - Index
++ [x] - Router
 + [ ] - Conquer the world through drag and drop. DRAG AND DROP EVERYWHERE!
 
 Strap up and put boots on the ground!
