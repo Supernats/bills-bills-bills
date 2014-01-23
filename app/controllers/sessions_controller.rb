@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+  before_filter :require_no_current_user!, :only => [:new, :create]
   def new
     @user = User.new
+    render :new
   end
 
   def create
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash.now[:errors] = "Incorrect credentials"
-      render new
+      render :new
     end
   end
 
