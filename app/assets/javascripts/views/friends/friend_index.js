@@ -1,6 +1,10 @@
 BillApp.Views.FriendIndex = Backbone.View.extend({
   template: JST['friends/friend_index'],
 
+  events: {
+    "click .friend-row": "visitFriendPage"
+  }
+
   render: function () {
     var totalCredit = BillApp.user.get('total_owed_by_other_users');
     var totalDebt = BillApp.user.get('total_owed_to_other_users');
@@ -19,4 +23,6 @@ BillApp.Views.FriendIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     return this;
   }
+
+
 });

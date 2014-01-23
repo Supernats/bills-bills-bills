@@ -10,7 +10,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     if (options.creditor) {
       this.creditor = options.creditor;
     }
-    if (options.debot) {
+    if (options.debtor) {
       this.debtor = options.debtor;
     }
   },
@@ -20,13 +20,13 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     "click #add_debtor": "addDebtor",
     "keyup #transaction_total": "splitEvenly",
     "click .unmodified-amount": "clearField",
-    "keyup .modified-amount": "splitEvenly",
-    "click .remove-debtor": "removeDebtor"
+    "keyup .modified-amount": "splitEvenly"
   },
 
   render: function () {
     var renderedContent = this.template({ });
     this.$el.html(renderedContent);
+    this.fillFields();
     return this;
   },
 
@@ -36,13 +36,6 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     this.$('#debtors').prepend(loanNew.render().$el);
   },
 
-  removeDebtor: function (event) {
-    console.log("BUTTON CLICKED");
-    debugger
-    event.preventDefault();
-    $(event.currentTarget).remove();
-  },
-  
   clearField: function (event) {
     if (!this.checkForLastField(event)) {
       var field = $(event.currentTarget);
@@ -50,6 +43,25 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
       field.removeClass('unmodified-amount');
       field.addClass('modified-amount');
       this.splitEvenly(event);
+    }
+  },
+
+  fillFields: function () {
+    if (this.transaction) {
+      console.log("Stuff brought from friend detail");
+      var loanNew = new BillApp.Views.LoanNew();
+      this.$('#transaction_description').val(this.transaction.get('description'));
+      this.$('#transaction_total').val(this.transaction.get('total'));
+      this.$('#debtors').prepend(loanNew.render().$el);
+      this.$('#creditor_name').val(this.creditor.get('email'));
+      this.$('#creditor_share').val(0);
+      this.$('#creditor_share').toggleClass('unmodified-amount');
+      this.$('#creditor_share').toggleClass('modified-amount');
+      this.$('.debtor-share').val(this.transaction.get('total'));
+      this.$('.debtor-name').val(this.debtor.get('email'));
+      this.$('.debtor-share').toggleClass('unmodified-amount');
+      this.$('.debtor-share').toggleClass('modified-amount');
+      this.$('#add_debtor').remove();
     }
   },
 

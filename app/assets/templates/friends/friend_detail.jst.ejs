@@ -14,7 +14,7 @@
       </tr>
     </table>
     <button id="friend_settle" class="btn btn-primary btn-lg btn-block">Settle Up</button>
-  <% } else { %>
+  <% } else if (friend.get('balance') > 0) { %>
     <table class="table">
       <tr>
         <th id="friend_email" class="text-left">
@@ -30,6 +30,7 @@
     </table>
     <button class="btn btn-primary btn-lg btn-block">Send a Reminder</button>
   <% } %>
+  <h2>Transaction History</h2>
 <div id="friend_credits" class="row">
   <% if (friendCredits.length > 0) { %>
     <table class="table">
