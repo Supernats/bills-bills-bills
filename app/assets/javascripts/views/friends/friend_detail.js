@@ -1,6 +1,10 @@
 BillApp.Views.FriendDetail = Backbone.View.extend({
   template: JST['friends/friend_detail'],
 
+  // initialize: function () {
+  //   this.listenTo(this.model.collection, 'add', this.render);
+  // },
+
   events: {
     'click #friend_settle': 'settle'
   },

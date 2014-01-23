@@ -34,9 +34,11 @@ BillApp.Views.FriendNew = Backbone.View.extend({
     } else {
       prospectiveFriend = BillApp.otherUsers.findWhere({ email: email });
       that.createFriend(prospectiveFriend.id, function(response) {
+        debugger
+        console.log(response)
         BillApp.friends.fetch({ success: function () {
-          debugger
-          BillApp.router.navigate("#friends/" + prospectiveFriend.id, { trigger: true });
+          console.log(response);
+          BillApp.router.navigate("#friends/" + response.id, { trigger: true });
           }
       });
     });
