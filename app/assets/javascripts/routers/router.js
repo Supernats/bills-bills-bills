@@ -8,12 +8,6 @@ BillApp.Routers.Router = Backbone.Router.extend({
     "transactions": "transactionIndex",
     "transactions/new": "transactionNew",
     "transactions/:id": "transactionDetail",
-    "debts": "debtIndex",
-    "debts/new": "debtNew",
-    "debts/:id": "debtShow",
-    "credits": "creditIndex",
-    "credits/new": "creditNew",
-    "credits/:id": "creditShow",
     "friends": "friendIndex",
     "friends/new": "friendNew",
     "friends/:id": "friendDetail"
@@ -72,52 +66,6 @@ BillApp.Routers.Router = Backbone.Router.extend({
         that._swapView(view);
       }
     }
-  },
-
-  debtIndex: function () {
-    var view = new BillApp.Views.LoanIndex({
-      collection: BillApp.debts
-      });
-    this._swapView(view);
-  },
-
-  debtNew: function () {
-    var view = new BillApp.Views.DebtNew({
-      collection: BillApp.debts,
-      model: new BillApp.Models.Debt()
-    });
-    this._swapView(view);
-  },
-
-  debtShow: function () {
-    var debt = BillApp.debts.get(id);
-    var view = new BillApp.Views.DebtShow({
-      model: debt
-    });
-    this._swapView(view);
-  },
-
-  creditIndex: function () {
-    var view = new BillApp.Views.LoanIndex({
-      collection: BillApp.credits
-      });
-    this._swapView(view);
-  },
-
-  creditNew: function () {
-    var view = new BillApp.Views.DebtNew({
-      collection: BillApp.credits,
-      model: new BillApp.Models.Debt()
-    });
-    this._swapView(view);
-  },
-
-  creditShow: function () {
-    var credit = BillApp.credits.get(id);
-    var view = new BillApp.Views.DebtShow({
-      model: credit
-    });
-    this._swapView(view);
   },
 
   _swapView: function (view) {
