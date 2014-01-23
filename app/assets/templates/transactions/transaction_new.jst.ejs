@@ -11,12 +11,16 @@
 
 <div class="form-group">
  <label for="transaction_total">Total Amount</label>
-  <input
-    class="form-control"
-    type="number"
-    id="transaction_total"
-    name="transaction[total]"
-  >
+ <div class="input-group">
+   <span class="input-group-addon">$</span>
+    <input
+      class="form-control"
+      type="number"
+      id="transaction_total"
+      name="transaction[total]"
+    >
+    <span class="input-group-addon">.00</span>
+  </div>
 </div>
 
 <div class="form-group">
@@ -36,11 +40,15 @@
 
 <div class="form-group">
   <label for="creditor_share">Creditor Share</label>
-  <input
-    class="form-control unmodified-amount"
-    type="number"
-    id="creditor_share"
-  >
+  <div class="input-group">
+    <span class="input-group-addon">$</span>
+    <input
+      class="form-control unmodified-amount"
+      type="number"
+      id="creditor_share"
+    >
+    <span class="input-group-addon">.00</span>
+  </div>
 </div>
 
 <div class="form-group" id="debtors">

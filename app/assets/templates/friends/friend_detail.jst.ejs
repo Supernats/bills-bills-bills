@@ -1,4 +1,5 @@
 <div id="friend_summary" class="row">
+<h1><%= friend.escape('email') %></h1>
   <% if (friend.get('balance') < 0) { %>
     <table class="table">
       <tr>
@@ -31,31 +32,41 @@
     <button class="btn btn-primary btn-lg btn-block">Send a Reminder</button>
   <% } %>
   <h2>Transaction History</h2>
-<div id="friend_credits" class="row">
-  <% if (friendCredits.length > 0) { %>
-    <table class="table">
-    <% _.each(friendCredits, function (friendCredit, index) { %>
-      <tr>
-        <td><%= friendCredit.get('description') %></td>
-        <td><%= friendCredit.get('date') %></td>
-        <td><%= friendCredit.get('amount') %></td>
-      </tr>
-    <% }); %>
-    </table>
-  <% } %>
-</div>
 
-<div id="friend_debts" class="row">
-  <% if (friendDebts.length > 0) { %>
-    <table class="table">
-    <% _.each(friendDebts, function (friendDebt, index) { %>
-      <tr>
-        <td><%= friendDebt.get('description') %></td>
-        <td><%= friendDebt.get('date') %></td>
-        <td><%= friendDebt.get('amount') %></td>
-      </tr>
-    <% }); %>
-    </table>
+  <div id="friend_credits" class="row">
+    <% if (friendCredits.length > 0) { %>
+      <table class="table">
+      <% _.each(friendCredits, function (friendCredit, index) { %>
+        <tr>
+          <td><%= friendCredit.get('description') %></td>
+          <td><%= friendCredit.get('date') %></td>
+          <td><%= friendCredit.get('amount') %></td>
+        </tr>
+      <% }); %>
+      </table>
+    <% } %>
+  </div>
+
+  <div id="friend_debts" class="row">
+    <% if (friendDebts.length > 0) { %>
+      <table class="table">
+      <% _.each(friendDebts, function (friendDebt, index) { %>
+        <tr>
+          <td><%= friendDebt.get('description') %></td>
+          <td><%= friendDebt.get('date') %></td>
+          <td><%= friendDebt.get('amount') %></td>
+        </tr>
+      <% }); %>
+      </table>
+    <% } %>
+  </div>
+
+  <% if (friendDebts.length === 0 && friendCredits.length === 0) { %>
+    <div class="jumbotron">
+      <h1>History? What History</h1>
+      <p>Maybe you should try</p>
+      <p><a href="#transactions/new" class="btn btn-primary btn-lg">Record a transaction</a></p>
+    </div>
   <% } %>
- </div>
+
 </div>
