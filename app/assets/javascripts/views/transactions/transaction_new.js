@@ -20,7 +20,8 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     "click #add_debtor": "addDebtor",
     "keyup #transaction_total": "splitEvenly",
     "click .unmodified-amount": "clearField",
-    "keyup .modified-amount": "splitEvenly"
+    "keyup .modified-amount": "splitEvenly",
+    "click .remove-debtor": "removeDebtor"
   },
 
   render: function () {
@@ -35,6 +36,13 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     this.$('#debtors').prepend(loanNew.render().$el);
   },
 
+  removeDebtor: function (event) {
+    console.log("BUTTON CLICKED");
+    debugger
+    event.preventDefault();
+    $(event.currentTarget).remove();
+  },
+  
   clearField: function (event) {
     if (!this.checkForLastField(event)) {
       var field = $(event.currentTarget);
