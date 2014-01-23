@@ -1,4 +1,8 @@
-"SUPER SWEET APP NAME" is an app for splitting bills with your friends.
+Splitter
+=
+
+Splittr is the app that takes the hassle out of doing things with you friends and family. You all have money, so why do places make it so hard for you to give it to them? With Splittr, you can keep track of your balances and history with any number of other users. When someone else adds you to a bill, Splittr lets you know. Paid them back? Settling is as easy as clicking a bright big button.  
+So what are you waiting for? Go out and have fun again.
 
 Basic stuff:
 + Let you add your friends as contacts for quick bill splitting with your most-used contacts.
