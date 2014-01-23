@@ -52,9 +52,10 @@ Evolve! Become a member of phylum chordata:
             + [x] - Should this total be tracked in the database for later show requests?
                 Yup. Totally nailed it, bro.  
         + [ ] - Item
-        + [ ] - Detail
+        + [x] - Detail
         + [ ] - Index
-            Probably doesn't make sense  
+            + Probably doesn't make sense  
+                + False, totally does. It's a transaction history for the user
     + [ ] - Loan
         + [x] - New
             + [ ] - Move debtor_id and loan amount collection logic to loan view rather than transaction?

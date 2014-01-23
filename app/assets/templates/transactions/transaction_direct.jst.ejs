@@ -1,0 +1,52 @@
+<div class="row" id="transaction_settle">
+
+  <div class="form-group">
+    <label for="transaction_description">Description</label>
+    <input
+      type="text"
+      id="transaction_description"
+      placeholder="description"
+      name="transaction[description]"
+      <% if (transaction && transaction.get('description')) { %>
+        value="<%= transaction.get('description') %>"
+      <% } %>
+    >
+  </div>
+
+  <div class="form-group">"
+    <label for="creditor_name">Paying</label>
+    <input
+      type="text"
+      id="creditor_name"
+      placeholder="Who's paying?"
+      <% if (creditor && creditor.get('email')) { %>
+        value="<%= creditor.get('email') %>"
+      <% } %>
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="debtor_name">Paid</label>
+    <input
+      type="text"
+      id="debtor_name"
+      placeholder="To whom?"
+      <% if (debtor && debtor.get('email')) { %>
+        value="<%= debtor.get('email') %>"
+      <% } %>
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="payment_total">Payment Total</label>
+    <input
+      type="number"
+      id="payment_total"
+      placeholder="1337"
+      <% if (transaction && transaction.get('total')) { %>
+        value="<%= transaction.get('total') %>"
+      <% } %>
+    >
+  </div>
+
+</div>

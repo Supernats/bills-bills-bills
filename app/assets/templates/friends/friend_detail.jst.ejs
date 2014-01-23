@@ -1,18 +1,37 @@
 <div id="friend_summary" class="row">
-  <table class="table">
-    <tr>
-      <th id="friend_email" class="text-center">
-        <%= friend.get('email') %>
-      </th>
-      <th id="friend_balance" class="text-center">
-        <%= friend.get('balance') %>
-      </th>
-    </tr>
-  </table>
-</div>
+  <% if (friend.get('balance') < 0) { %>
+    <table class="table">
+      <tr>
+        <th id="friend_flavor_text" class="text-left">
+          You owe
+        </th>
+        <th id="friend_email" class="text-center"">
+          <%= friend.get('email') %>
+        </th>
+        <th id="friend_balance" class="text-right">
+          <%= parseInt(friend.get('balance')) * -1  %>
+        </th>
+      </tr>
+    </table>
+    <button id="friend_settle" class="btn btn-primary btn-lg btn-block">Settle Up</button>
+  <% } else { %>
+    <table class="table">
+      <tr>
+        <th id="friend_email" class="text-left">
+          <%= friend.get('email') %>
+        </th>
+        <th id="friend_flavor_text" class="text-center">
+          Owes you
+        </th>
+        <th id="friend_balance" class="text-right">
+          <%= friend.get('balance') %>
+        </th>
+      </tr>
+    </table>
+    <button class="btn btn-primary btn-lg btn-block">Send a Reminder</button>
+  <% } %>
 <div id="friend_credits" class="row">
   <% if (friendCredits.length > 0) { %>
-  <p>Owes you</p>
     <table class="table">
     <% _.each(friendCredits, function (friendCredit, index) { %>
       <tr>
@@ -27,7 +46,6 @@
 
 <div id="friend_debts" class="row">
   <% if (friendDebts.length > 0) { %>
-  <p>You owe</p>
     <table class="table">
     <% _.each(friendDebts, function (friendDebt, index) { %>
       <tr>
@@ -39,3 +57,4 @@
     </table>
   <% } %>
  </div>
+</div>

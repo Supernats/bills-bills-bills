@@ -1,5 +1,10 @@
 BillApp.Views.FriendDetail = Backbone.View.extend({
   template: JST['friends/friend_detail'],
+
+  events: {
+    'click #friend_settle': 'settle'
+  },
+
   render: function () {
     var renderedContent = this.template({
       friend: this.model,
@@ -13,5 +18,20 @@ BillApp.Views.FriendDetail = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     return this;
+  },
+
+  settle: function (event) {
+    event.preventDefault();
+    var transaction = new BillApp.Models.Transaction();
+    transaction.set({
+      description: "Settle up with " + this.model.get('email'),
+      total: this.model.get('balance') * -1
+    });
+    var paymentView = new BillApp.Views.TransactionDirect({
+      transaction: transaction,
+      creditor: BillApp.user,
+      debtor: this.model
+    });
+    console.log(transaction)
   }
 });
