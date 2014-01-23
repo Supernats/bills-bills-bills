@@ -37,8 +37,11 @@ BillApp.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  transactionNew: function () {
-    var view = new BillApp.Views.TransactionNew();
+  transactionNew: function (options) {
+    if (!options) {
+      var options = {};
+    }
+    var view = new BillApp.Views.TransactionNew(options);
     this._swapView(view);
   },
 

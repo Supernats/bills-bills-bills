@@ -3,6 +3,18 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   className: 'form',
   template: JST['transactions/transaction_new'],
 
+  initialize: function (options) {
+    if (options.transaction) {
+      this.transaction = options.transaction;
+    }
+    if (options.creditor) {
+      this.creditor = options.creditor;
+    }
+    if (options.debot) {
+      this.debtor = options.debtor;
+    }
+  },
+
   events: {
     "click #transaction_submit": "submit",
     "click #add_debtor": "addDebtor",
@@ -20,7 +32,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   addDebtor: function (event) {
     event.preventDefault();
     var loanNew = new BillApp.Views.LoanNew();
-    this.$('#debtors').append(loanNew.render().$el);
+    this.$('#debtors').prepend(loanNew.render().$el);
   },
 
   clearField: function (event) {
@@ -36,7 +48,8 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
   checkForLastField: function (event) {
     var lastField = false;
     if ($('.unmodified-amount').length ===  1
-        && $('.debtor-share').length > 0) {
+        && $('.debtor-share').length > 0
+        && !this.transaction) {
       window.alert("Don't worry; we'll do the math for you.");
       lastField = true;
     }

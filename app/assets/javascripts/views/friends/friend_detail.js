@@ -21,17 +21,15 @@ BillApp.Views.FriendDetail = Backbone.View.extend({
   },
 
   settle: function (event) {
-    event.preventDefault();
     var transaction = new BillApp.Models.Transaction();
     transaction.set({
       description: "Settle up with " + this.model.get('email'),
       total: this.model.get('balance') * -1
     });
-    var paymentView = new BillApp.Views.TransactionDirect({
+    BillApp.router.transactionNew({
       transaction: transaction,
       creditor: BillApp.user,
       debtor: this.model
     });
-    console.log(transaction)
   }
 });
