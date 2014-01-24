@@ -15,6 +15,7 @@ BillApp.Routers.Router = Backbone.Router.extend({
 
   userDetail: function() {
     BillApp.user.fetch({ success: function () {
+      debugger
       var view = new BillApp.Views.UserDetail();
       this._swapView(view);
     }
