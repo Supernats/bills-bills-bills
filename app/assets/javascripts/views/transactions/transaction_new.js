@@ -53,12 +53,12 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
       this.$('#transaction_description').val(this.transaction.get('description'));
       this.$('#transaction_total').val(this.transaction.get('total'));
       this.$('#debtors').prepend(loanNew.render().$el);
-      this.$('#creditor_name').val(this.creditor.get('email'));
+      this.$('#creditor_name').val(this.creditor.escape('email'));
       this.$('#creditor_share').val(0);
       this.$('#creditor_share').toggleClass('unmodified-amount');
       this.$('#creditor_share').toggleClass('modified-amount');
-      this.$('.debtor-share').val(this.transaction.get('total'));
-      this.$('.debtor-name').val(this.debtor.get('email'));
+      this.$('.debtor-share').val(this.transaction.escape('total'));
+      this.$('.debtor-name').val(this.debtor.escape('email'));
       this.$('.debtor-share').toggleClass('unmodified-amount');
       this.$('.debtor-share').toggleClass('modified-amount');
       this.$('#add_debtor').remove();
