@@ -1,16 +1,14 @@
 BillApp.Views.FriendDetail = Backbone.View.extend({
   template: JST['friends/friend_detail'],
 
-  // initialize: function () {
-  //   this.listenTo(this.model.collection, 'add', this.render);
-  // },
-
   events: {
     'click #friend_settle': 'settle'
   },
 
   render: function () {
+    var displayName = this.model.get('username') || this.model.get('email');
     var renderedContent = this.template({
+      name: displayName,
       friend: this.model,
       balance: this.model.get('balance'),
       friendCredits: BillApp.credits.where({

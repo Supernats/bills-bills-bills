@@ -46,10 +46,19 @@ BillApp.Routers.Router = Backbone.Router.extend({
   },
 
   transactionIndex: function () {
-    var view = new BillApp.Views.TransactionIndex({
-      collection: BillApp.transactions,
-    });
-    this._swapView(view);
+    var that = this;
+    BillApp.debts.fetch().done(_createView);
+    BillApp.credits.fetch().done(_createView);
+
+    var n = 1;
+    function _createView() {
+      if (n > 0) {
+        n--;
+      } else {
+        var view = new BillApp.Views.TransactionIndex();
+        that._swapView(view);
+      }
+    }
   },
 
   transactionDetail: function (id) {
@@ -73,7 +82,7 @@ BillApp.Routers.Router = Backbone.Router.extend({
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
-    this._current_view = view;
+    this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
 });

@@ -1,5 +1,5 @@
 <div id="friend_summary" class="row">
-<h1><%= friend.escape('email') %></h1>
+<h1><%= escape(name) %></h1>
   <% if (friend.get('balance') < 0) { %>
     <table class="table">
       <tr>

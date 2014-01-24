@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :password, :session_token, :username, :email
   attr_reader :password
 
-  validates :email, :presence => true
+  validates :email, :session_token, :presence => true
+  before_validation :ensure_session_token
 
   has_many :debtors, :through => :credits, :uniq => true
   has_many :creditors, :through => :debts, :uniq => true

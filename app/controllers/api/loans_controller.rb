@@ -1,4 +1,9 @@
 class Api::LoansController < ApplicationController
+  def index
+    @loans = current_user.credits.concat(current_user.debts)
+    render :json => @loans
+  end
+
   def new
     @loan = Loan.new
   end

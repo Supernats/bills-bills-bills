@@ -1,5 +1,3 @@
-// collection: BillApp.friends,
-// otherUsers: BillApp.otherUsers
 BillApp.Views.FriendNew = Backbone.View.extend({
   tagName: 'form',
   className: 'form',

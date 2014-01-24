@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
       @user = UnregisteredUser.new(params[:user])
     end
     if @user.save
+      puts "Saved unregistered user"
       render :json => @user
     else
       render :json => @user.errors
