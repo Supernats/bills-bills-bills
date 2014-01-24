@@ -8,7 +8,9 @@ BillApp.Views.TransactionIndex = Backbone.View.extend({
   },
 
   render: function () {
-    var loans = new BillApp.Collections.Loans(BillApp.debts.models.concat(BillApp.credits.models));
+    var debts = BillApp.user.get('debts');
+    var credits = BillApp.user.get('credits');
+    var loans = new BillApp.Collections.Loans(debts.models.concat(credits.models));
     loans.sort();
     var renderedContent = this.template({
       loans: loans

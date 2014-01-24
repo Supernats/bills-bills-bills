@@ -47,14 +47,14 @@ BillApp.Routers.Router = Backbone.Router.extend({
 
   transactionIndex: function () {
     var that = this;
-    BillApp.debts.fetch().done(_createView);
-    BillApp.credits.fetch().done(_createView);
+    BillApp.user.fetch().done(_createView);
 
-    var n = 1;
+    var n = 0;
     function _createView() {
       if (n > 0) {
         n--;
       } else {
+        debugger
         var view = new BillApp.Views.TransactionIndex();
         that._swapView(view);
       }

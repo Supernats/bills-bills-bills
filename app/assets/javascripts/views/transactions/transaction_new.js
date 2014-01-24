@@ -88,9 +88,6 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     var newTransaction = new BillApp.Models.Transaction(params);
     newTransaction.save({},
       { success: function (response) {
-        console.log(newTransaction);
-        console.log(BillApp.transactions);
-        // BillApp.transactions.fetch();
         BillApp.transactions.add(newTransaction);
         var transactionId = response.id;
         var creditorId = that.getCreditorId();
