@@ -1,6 +1,7 @@
-<div class="new-debtor">
-  <div class="form-group">
-    Debtor
+<div class="row new-debtor">
+
+  <div class="form-group col-xs-6">
+    <label>Debtor</label>
     <input 
       type="text"
       class="debtor-name form-control"
@@ -8,15 +9,15 @@
     >
   </div>
 
-  <div class="form-group">
-    Debtor share
+  <div class="form-group col-xs-6">
+    <label>Debtor share</label>
+
     <div class="input-group">
       <span class="input-group-addon">$</span>
       <input type="number" class="debtor-share unmodified-amount form-control">
       <span class="input-group-addon">.00</span>
     </div>
-      <button class="remove-debtor btn-danger btn form-contorl">
-        Remove Debtor
-      </button>
+    <button type="button" class="btn btn-danger remove-debtor">Remove Debtor</button>
   </div>
+
 </div>
