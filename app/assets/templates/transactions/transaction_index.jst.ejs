@@ -4,16 +4,16 @@
     <% loans.each(function (loan) { %>
       <tr
       class="transaction-row"
-      data-id="<%= loan.get('transaction_id') %>"
-        <% if (loan.get('debtor_id')) { %>
+      data-id="<%= loan.escape('transaction_id') %>"
+        <% if (loan.escape('debtor_id')) { %>
           data-type="credit"
         <% } else { %>
           data-type="debt"
         <% } %>
       >
-        <td><%= loan.get('description') %></td>
-        <td><%= loan.get('date') %></td>
-        <td><%= Math.abs(loan.get('amount')) %></td>
+        <td><%= loan.escape('description') %></td>
+        <td><%= loan.escape('date') %></td>
+        <td><%= Math.abs(loan.escape('amount')) %></td>
       </tr>
     <% }); %>
     </table>

@@ -54,7 +54,6 @@ BillApp.Routers.Router = Backbone.Router.extend({
       if (n > 0) {
         n--;
       } else {
-        debugger
         var view = new BillApp.Views.TransactionIndex();
         that._swapView(view);
       }

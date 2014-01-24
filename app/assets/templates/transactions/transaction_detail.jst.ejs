@@ -1,8 +1,8 @@
-<h1><%= transaction.get('description') %></h1>
+<h1><%= transaction.escape('description') %></h1>
 <table class="table">
   <tr>
     <th></th>
-    <th><%= transaction.get('total') %></th>
+    <th><%= transaction.escape('total') %></th>
   </tr>
   <% _.each(creditor, function (value, key) { %>
     <tr class="creditor-row">
