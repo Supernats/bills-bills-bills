@@ -1,12 +1,28 @@
 <h1>Sign In</h1>
 <div class="row">
-  <form action="<%= session_url %>" method="POST">
+  <form id="session_form" action="<%= session_url %>" method="POST">
     <%= render "shared/auth_form", :user => @user %>
-    <input class="btn form-control form-group btn-primary" type="submit" value="Sign In">
+    <input id="login_submit" class="btn form-control form-group btn-primary" type="submit" value="Sign In">
   </form>
 </div>
   <div class="row text-center">
   <h3>Don't have an account? How about you...</h3>
   <%= link_to "Sign Up", new_user_url, :class => "btn-blk btn btn-warning col-xs-6" %>
-  <button class="btn btn-blk btn-success col-xs-6">Sign In as Guest</button>
+  <button id="guest_login" class="btn btn-blk btn-success col-xs-6">Sign In as Guest</button>
 </div>
+
+
+<script type="text/javascript">
+  $(function () {
+    $('#guest_login').click(function (event) {
+      console.log("FUCK DEBUGGER")
+      event.preventDefault();
+      $('#user_email').val('paul@billapp.com');
+      $('#user_password').val('I_must_n0t_fear');
+      setTimeout(function () {
+        $('#session_form').submit();
+      }, 500);
+    });
+
+  });
+</script>
