@@ -1,31 +1,31 @@
 <div id="friend_summary" class="row">
 <h1><%= escape(name) %></h1>
-  <% if (friend.get('balance') < 0) { %>
+  <% if (friend.escape('balance') < 0) { %>
     <table class="table">
       <tr>
         <th id="friend_flavor_text" class="text-left">
           You owe
         </th>
         <th id="friend_email" class="text-center"">
-          <%= friend.get('email') %>
+          <%= friend.escape('email') %>
         </th>
         <th id="friend_balance" class="text-right">
-          <%= parseInt(friend.get('balance')) * -1  %>
+          <%= parseInt(friend.escape('balance')) * -1  %>
         </th>
       </tr>
     </table>
     <button id="friend_settle" class="btn btn-primary btn-lg btn-block">Settle Up</button>
-  <% } else if (friend.get('balance') > 0) { %>
+  <% } else if (friend.escape('balance') > 0) { %>
     <table class="table">
       <tr>
         <th id="friend_email" class="text-left">
-          <%= friend.get('email') %>
+          <%= friend.escape('email') %>
         </th>
         <th id="friend_flavor_text" class="text-center">
           Owes you
         </th>
         <th id="friend_balance" class="text-right">
-          <%= friend.get('balance') %>
+          <%= friend.escape('balance') %>
         </th>
       </tr>
     </table>
@@ -38,9 +38,9 @@
       <table class="table">
       <% _.each(friendCredits, function (friendCredit, index) { %>
         <tr>
-          <td><%= friendCredit.get('description') %></td>
-          <td><%= friendCredit.get('date') %></td>
-          <td><%= friendCredit.get('amount') %></td>
+          <td><%= friendCredit.escape('description') %></td>
+          <td><%= friendCredit.escape('date') %></td>
+          <td><%= friendCredit.escape('amount') %></td>
         </tr>
       <% }); %>
       </table>
@@ -52,9 +52,9 @@
       <table class="table">
       <% _.each(friendDebts, function (friendDebt, index) { %>
         <tr>
-          <td><%= friendDebt.get('description') %></td>
-          <td><%= friendDebt.get('date') %></td>
-          <td><%= friendDebt.get('amount') %></td>
+          <td><%= friendDebt.escape('description') %></td>
+          <td><%= friendDebt.escape('date') %></td>
+          <td><%= friendDebt.escape('amount') %></td>
         </tr>
       <% }); %>
       </table>
