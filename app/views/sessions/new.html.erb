@@ -2,6 +2,11 @@
 <div class="row">
   <form action="<%= session_url %>" method="POST">
     <%= render "shared/auth_form", :user => @user %>
-    <input class="form-control form-group" type="submit" value="Sign In">
+    <input class="btn form-control form-group btn-primary" type="submit" value="Sign In">
   </form>
+</div>
+  <div class="row text-center">
+  <h3>Don't have an account? How about you...</h3>
+  <%= link_to "Sign Up", new_user_url, :class => "btn-blk btn btn-warning col-xs-6" %>
+  <button class="btn btn-blk btn-success col-xs-6">Sign In as Guest</button>
 </div>
