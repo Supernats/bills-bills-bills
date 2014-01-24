@@ -88,6 +88,7 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
     var newTransaction = new BillApp.Models.Transaction(params);
     newTransaction.save({},
       { success: function (response) {
+        BillApp.transactions.add(newTransaction);
         var transactionId = response.id;
         var creditorId = that.getCreditorId();
         var debtorsObject = that.makeDebtorsObject();
@@ -106,10 +107,10 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
       });
       loan.save();
     });
+    BillApp.router.navigate("transactions/" + transactionId, { trigger: true });
   },
 
   getCreditorId: function () {
-    debugger
     var creditorName = $('#creditor_name').val();
     return this.getUserId(creditorName);
   },

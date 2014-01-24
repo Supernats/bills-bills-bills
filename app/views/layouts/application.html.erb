@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BillApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>BillApp</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <%= render 'shared/errors' %>
-  <%= render 'shared/navbar' %>
-  <div id="static_content" class="col-xs-8 col-xs-offset-2">
-    <%= yield %>
-  </div>
+    <div class="container">
+      <%= render 'shared/errors' %>
+      <%= render 'shared/navbar' %>
+      <div id="static_content" class="col-xs-8 col-xs-offset-2">
+        <%= yield %>
+      </div>
+    </div>
 
-</body>
+  </body>
 </html>
