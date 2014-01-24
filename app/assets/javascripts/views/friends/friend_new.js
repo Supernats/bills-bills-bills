@@ -26,7 +26,7 @@ BillApp.Views.FriendNew = Backbone.View.extend({
         prospectiveFriend = model;
         that.createFriend(prospectiveFriend.id, function(response) {
           BillApp.friends.fetch({ success: function () {
-            BillApp.router.navigate("#friends/" + response.id, { trigger: true });
+            BillApp.router.navigate("#friends/" + prospectiveFriend.id, { trigger: true });
             }
           });
         });
@@ -35,7 +35,6 @@ BillApp.Views.FriendNew = Backbone.View.extend({
       prospectiveFriend = BillApp.otherUsers.findWhere({ email: email });
       that.createFriend(prospectiveFriend.id, function(response) {
         BillApp.friends.fetch({ success: function () {
-          debugger
           BillApp.router.navigate("#friends/" + prospectiveFriend.id, { trigger: true });
           }
       });
