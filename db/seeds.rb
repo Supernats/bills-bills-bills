@@ -43,6 +43,6 @@ flarnie = UnregisteredUser.create(
 
 guest = RegisteredUser.create(
   :email => "paul@splittr.com",
-  :username => "Muad'Dib",
+  :username => "Kwisatz Haderach",
   :password => "I_must_n0t_fear"
 )
