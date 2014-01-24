@@ -14,8 +14,10 @@ BillApp.Routers.Router = Backbone.Router.extend({
   },
 
   userDetail: function() {
-    var view = new BillApp.Views.UserDetail();
-    this._swapView(view);
+    BillApp.user.fetch({ success: 
+      var view = new BillApp.Views.UserDetail();
+      this._swapView(view);
+    });
   },
 
   friendIndex: function () {
