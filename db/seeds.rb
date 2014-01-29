@@ -1,48 +1,48 @@
 # Create users
 nathan = RegisteredUser.create(
-  :email => "nathan@splittr.com",
+  :email => "nathan@paytoma.com",
   :username => "Nathan",
   :password => "password"
 )
 david = RegisteredUser.create(
-  :email => "david@splittr.com",
+  :email => "david@paytoma.com",
   :username => "David",
   :password => "password"
 )
 rory = RegisteredUser.create(
-  :email => "rory@splittr.com",
+  :email => "rory@paytoma.com",
   :username => "Rory",
   :password => "password"
 )
 john = RegisteredUser.create(
-  :email => "john@splittr.com",
+  :email => "john@paytoma.com",
   :username => "John",
   :password => "password"
 )
 ned = RegisteredUser.create(
-  :email => "ned@splittr.com",
+  :email => "ned@paytoma.com",
   :username => "Ned",
   :password => "password"
 )
 
 cj = UnregisteredUser.create(
-  :email => "cj@splittr.com"
+  :email => "cj@paytoma.com"
 )
 
 jeff = UnregisteredUser.create(
-  :email => "jeff@splittr.com"
+  :email => "jeff@paytoma.com"
 )
 
 ryan = UnregisteredUser.create(
-  :email => "ryan@splittr.com"
+  :email => "ryan@paytoma.com"
 )
 
 flarnie = UnregisteredUser.create(
-  :email => "flarnie@splittr.com"
+  :email => "flarnie@paytoma.com"
 )
 
 guest = RegisteredUser.create(
-  :email => "paul@splittr.com",
+  :email => "paul@paytoma.com",
   :username => "Kwisatz Haderach",
   :password => "I_must_n0t_fear"
 )
