@@ -62,6 +62,9 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.2)
@@ -77,6 +80,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.4)
+    newrelic_rpm (3.7.1.188)
     pg (0.17.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -139,8 +143,10 @@ DEPENDENCIES
   binding_of_caller
   debugger
   ejs
+  figaro
   jbuilder
   jquery-rails
+  newrelic_rpm
   pg
   rails (= 3.2.15)
   rails_12factor

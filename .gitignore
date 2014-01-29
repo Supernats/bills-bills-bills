@@ -15,3 +15,6 @@
 /tmp
 *.swp
 
+
+# Ignore application configuration
+/config/application.yml

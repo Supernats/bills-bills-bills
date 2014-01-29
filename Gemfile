@@ -7,6 +7,8 @@ gem 'backbone-on-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'figaro'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
