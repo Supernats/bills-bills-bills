@@ -48,7 +48,6 @@ BillApp.Views.TransactionNew = Backbone.View.extend({
 
   fillFields: function () {
     if (this.transaction) {
-      console.log("Stuff brought from friend detail");
       var loanNew = new BillApp.Views.LoanNew();
       this.$('#transaction_description').val(this.transaction.escape('description'));
       this.$('#transaction_total').val(this.transaction.escape('total'));
